@@ -1,0 +1,962 @@
+2026-09-24 17:29:10 | INFO     | main | WB Аудит Бот v4.30.0
+2026-09-24 17:29:10 | INFO     | main | Загрузка конфигурации...
+2026-09-24 17:29:10 | INFO     | main | Чекпоинт удалён (--fresh)
+2026-09-24 17:29:10 | INFO     | main | Конфигурация загружена: 2 аккаунтов
+2026-09-24 17:29:10 | INFO     | main | Режим: full
+2026-09-24 17:29:10 | INFO     | main |   • CLIENT | 79015408273 | https://www.wildberries.ru/catalog/460445507/detail.aspx...
+2026-09-24 17:29:10 | INFO     | main |   • COMPETITOR | (без телефона) | https://www.wildberries.ru/catalog/649498292/detail.aspx...
+2026-09-24 17:29:10 | INFO     | main | Настройки: max_reviews=1000, min_review_length=10, months_window=0
+2026-09-24 17:29:10 | INFO     | main | API продавца: выключен (WB_SELLER_TOKEN пуст) — аудит на публичных данных
+2026-09-24 17:29:10 | INFO     | core.output_organizer | Реорганизовано файлов: 1
+2026-09-24 17:29:10 | INFO     | pipeline | Реорганизовано старых файлов в новый формат: 1
+2026-09-24 17:29:10 | INFO     | browser.session_resolver | Конкурент без телефона → сессия клиента 79015408273 (SKU: 649498292)
+2026-09-24 17:29:10 | INFO     | browser.session_resolver | Сессия 79015408273: 2 товаров — client(SKU:460445507), competitor(SKU:649498292)
+2026-09-24 17:29:10 | INFO     | pipeline | ============================================================
+2026-09-24 17:29:10 | INFO     | pipeline | Пайплайн запущен | Сессия: f6b94e89
+2026-09-24 17:29:10 | INFO     | pipeline | Аккаунтов: 2 (клиент: 1, конкуренты: 1)
+2026-09-24 17:29:10 | INFO     | pipeline | Уникальных сессий: 1
+2026-09-24 17:29:10 | INFO     | pipeline | ============================================================
+2026-09-24 17:29:10 | DEBUG    | core.progress | Прогресс: [0/6] running — init
+2026-09-24 17:29:10 | INFO     | core.endpoint_discovery | Health-check 10 хостов...
+2026-09-24 17:29:11 | INFO     | core.endpoint_discovery | Health-check: 3/10 хостов работают. Топ-3 быстрых: feedbacks2.wb.ru, feedbacks1.wb.ru, feedback-view-04.wb.ru
+2026-09-24 17:29:11 | INFO     | pipeline | [1/6] → preload_route_map
+2026-09-24 17:29:11 | DEBUG    | core.progress | Прогресс: [1/6] running — preload_route_map
+2026-09-24 17:29:11 | INFO     | pipeline | ==================================================
+2026-09-24 17:29:11 | INFO     | pipeline | Предзагрузка карты маршрутизации WB CDN (Tier 0)
+2026-09-24 17:29:11 | INFO     | pipeline | ==================================================
+2026-09-24 17:29:11 | INFO     | pipeline | URL: https://cdn.wbbasket.ru/api/v3/upstreams (без cookies, без VPN, кеш 7 дней)
+2026-09-24 17:29:11 | INFO     | reviews.api | Карта маршрутизации: загружена с cdn.wbbasket.ru (17474 байт, force_reload=False)
+2026-09-24 17:29:11 | INFO     | pipeline | ✅ Карта маршрутизации готова (свежая с CDN): 65 хостов в origin.mediabasket_route_map, age=0с. Tier 0 (прямой urllib к card.json) будет работать.
+2026-09-24 17:29:11 | INFO     | pipeline |    Карта покрывает vol 0..28805 (самые новые товары могут быть выше)
+2026-09-24 17:29:11 | INFO     | pipeline | ==================================================
+2026-09-24 17:29:11 | INFO     | pipeline | [1/6] ✓ preload_route_map — завершён (0.3s)
+2026-09-24 17:29:11 | DEBUG    | core.checkpoint | Чекпоинт сохранён: шаг init_browser, завершено 1
+2026-09-24 17:29:11 | INFO     | pipeline | [2/6] → init_browser
+2026-09-24 17:29:11 | DEBUG    | core.progress | Прогресс: [2/6] running — init_browser
+2026-09-24 17:29:11 | INFO     | browser.manager | Запуск patchright (пропатченный Playwright — антибот не детектит)...
+2026-09-24 17:29:13 | INFO     | browser.manager | Браузер запущен: Google Chrome (channel=chrome, headless=False)
+2026-09-24 17:29:13 | INFO     | browser.session_manager | Проверка сессий: 1 уникальных аккаунтов
+2026-09-24 17:29:13 | INFO     | browser.session_manager | Загрузка сохранённой сессии: 79015408273
+2026-09-24 17:29:18 | INFO     | browser.session_manager | Контекст работает: WB загружен (title=...)
+2026-09-24 17:29:18 | INFO     | browser.session_manager | ✅ Сессия жива: 79015408273
+2026-09-24 17:29:18 | INFO     | pipeline | Инициализация завершена. Сессий: 1
+2026-09-24 17:29:18 | INFO     | pipeline | [2/6] ✓ init_browser — завершён (7.0s)
+2026-09-24 17:29:18 | DEBUG    | core.checkpoint | Чекпоинт сохранён: шаг scrape_products, завершено 2
+2026-09-24 17:29:18 | INFO     | pipeline | [3/6] → scrape_products
+2026-09-24 17:29:18 | DEBUG    | core.progress | Прогресс: [3/6] running — scrape_products
+2026-09-24 17:29:18 | DEBUG    | analyzer.prompt_loader | Загрузка промпта: navigator_v1.0.yaml
+2026-09-24 17:29:18 | INFO     | analyzer.prompt_loader | Промпт загружен: navigator_v1.0 (system_prompt=2467 символов)
+2026-09-24 17:29:18 | INFO     | core.llm_provider | LLM-провайдер: DeepSeek (analysis=deepseek-v4-flash)
+2026-09-24 17:29:18 | INFO     | core.deepseek_client | DeepSeek клиент: concurrency=64, thinking_mode=off, all_stages=False, api_key=set
+2026-09-24 17:29:18 | INFO     | navigator.ai | Кэш селекторов загружен: 1 записей
+2026-09-24 17:29:18 | INFO     | collector.orchestrator | ========================================
+2026-09-24 17:29:18 | INFO     | collector.orchestrator | Параллельный сбор: клиент + 1 конкурентов
+2026-09-24 17:29:18 | INFO     | collector.orchestrator | ========================================
+2026-09-24 17:29:18 | INFO     | reviews.api | Браузерные cookies установлены: 2 шт для urllib
+2026-09-24 17:29:18 | INFO     | reviews.api | card.json: SKU=460445507 (vol=4604, part=460445) — старт Tier 0/1
+2026-09-24 17:29:18 | INFO     | reviews.api | Карта: загрузка (vol=4604, _route_map=пусто)
+2026-09-24 17:29:18 | INFO     | reviews.api | Карта маршрутизации: загружена из кеша на диске (4 ключей, age=7с, TTL=604800с)
+2026-09-24 17:29:18 | INFO     | reviews.api | Карта: vol=4604 → basket-26.wbbasket.ru (найден в кеше)
+2026-09-24 17:29:18 | INFO     | reviews.api | card.json: Tier 0 — запрос к https://basket-26.wbbasket.ru/vol4604/part460445/460445507/info/ru/card.json
+2026-09-24 17:29:18 | INFO     | reviews.api | Браузерные cookies установлены: 2 шт для urllib
+2026-09-24 17:29:18 | INFO     | reviews.api | card.json: SKU=649498292 (vol=6494, part=649498) — старт Tier 0/1
+2026-09-24 17:29:18 | INFO     | reviews.api | Карта: загрузка (vol=6494, _route_map=пусто)
+2026-09-24 17:29:18 | INFO     | reviews.api | Карта маршрутизации: загружена из кеша на диске (4 ключей, age=7с, TTL=604800с)
+2026-09-24 17:29:18 | INFO     | reviews.api | Карта: vol=6494 → basket-32.wbbasket.ru (найден в кеше)
+2026-09-24 17:29:18 | INFO     | reviews.api | card.json: Tier 0 — запрос к https://basket-32.wbbasket.ru/vol6494/part649498/649498292/info/ru/card.json
+2026-09-24 17:29:18 | INFO     | reviews.api | card.json: Tier 0 УСПЕХ — basket-26.wbbasket.ru, description=да, imt_id=да, chars=8
+2026-09-24 17:29:18 | INFO     | core.endpoint_registry | Реестр: эндпоинт card_json обновлён (domain=basket-26.wbbasket.ru)
+2026-09-24 17:29:18 | INFO     | reviews.api | Используем card.json как primary source для SKU=460445507
+2026-09-24 17:29:18 | INFO     | reviews.api | card.json: Tier 0 УСПЕХ — basket-32.wbbasket.ru, description=да, imt_id=да, chars=8
+2026-09-24 17:29:18 | INFO     | core.endpoint_registry | Реестр: эндпоинт card_json обновлён (domain=basket-32.wbbasket.ru)
+2026-09-24 17:29:18 | INFO     | reviews.api | Используем card.json как primary source для SKU=649498292
+2026-09-24 17:29:18 | DEBUG    | reviews.api | HTTP 403 (антибот/IP-блок, без ретраев): https://www.wildberries.ru/__internal/u-card/cards/v4/detail?curr=rub&dest=-1257
+2026-09-24 17:29:18 | INFO     | reviews.api | Карта: vol=4604 → basket-26.wbbasket.ru (найден в кеше)
+2026-09-24 17:29:18 | INFO     | reviews.api | Фото: card.json (photo_count=19) + card.wb.ru не дали URL — сгенерировано 19 URL через route map (host=basket-26.wbbasket.ru)
+2026-09-24 17:29:18 | INFO     | collector.orchestrator | Card API: данные получены для SKU 460445507
+2026-09-24 17:29:18 | DEBUG    | reviews.api | HTTP 403 (антибот/IP-блок, без ретраев): https://www.wildberries.ru/__internal/u-card/cards/v4/detail?curr=rub&dest=-1257
+2026-09-24 17:29:18 | INFO     | reviews.api | Карта: vol=6494 → basket-32.wbbasket.ru (найден в кеше)
+2026-09-24 17:29:18 | INFO     | reviews.api | Фото: card.json (photo_count=11) + card.wb.ru не дали URL — сгенерировано 11 URL через route map (host=basket-32.wbbasket.ru)
+2026-09-24 17:29:18 | INFO     | collector.orchestrator | Card API: данные получены для SKU 649498292
+2026-09-24 17:29:19 | INFO     | collector.orchestrator | Скачано фото: 19/19 (SKU 460445507)
+2026-09-24 17:29:19 | INFO     | collector.orchestrator | API-first: получены не все поля. Missing: ['price', 'rating']. Открываем браузер для fallback.
+2026-09-24 17:29:19 | INFO     | collector.orchestrator | Браузер-fallback: навигация к товару SKU 460445507
+2026-09-24 17:29:19 | INFO     | collector.orchestrator | Навигация к товару по SKU: 460445507
+2026-09-24 17:29:19 | INFO     | browser.navigation | Навигация к товару по SKU 460445507: https://www.wildberries.ru/catalog/460445507/detail.aspx
+2026-09-24 17:29:19 | DEBUG    | collector.orchestrator | Перехват: пропуск https://www.wildberries.ru/catalog/460445507/detail.aspx — HTTP 498 (не 200, данные не извлекаются)
+2026-09-24 17:29:19 | INFO     | collector.orchestrator | Скачано фото: 11/11 (SKU 649498292)
+2026-09-24 17:29:19 | INFO     | collector.orchestrator | API-first: получены не все поля. Missing: ['price', 'rating']. Открываем браузер для fallback.
+2026-09-24 17:29:19 | INFO     | collector.orchestrator | Браузер-fallback: навигация к товару SKU 649498292
+2026-09-24 17:29:19 | INFO     | collector.orchestrator | Навигация к товару по SKU: 649498292
+2026-09-24 17:29:19 | INFO     | browser.navigation | Навигация к товару по SKU 649498292: https://www.wildberries.ru/catalog/649498292/detail.aspx
+2026-09-24 17:29:22 | DEBUG    | collector.orchestrator | Перехват: пропуск https://www.wildberries.ru/catalog/649498292/detail.aspx — HTTP 498 (не 200, данные не извлекаются)
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://www.wildberries.ru/catalog/649498292/detail.aspx — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/critical.5f6855cf5d8bb72c.css — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/f/google-sans-cyrillic-vf.woff2 — не JSON (UnicodeDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/f/google-sans-latin-vf.woff2 — не JSON (UnicodeDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/index-spa.c2f0c03dec5fac88.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/prodversion-front-v2.json?__mf_sa — blacklist, пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/react-vendors.88d8eda9c1885ee — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/i/v3/header/logoWb.svg — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/i/v3/mobile-app/logo.svg — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/react-app.95a686b6c3dcbec4.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/lang-ru.ae81ff6346f1a084.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/entry.641e6c465f7afb24.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/wbIdSdk-component.9e81bb77fc4 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/67528.a9d0754c7dba1312.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/78419.c800035120d7760a.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/15947.ff88730117b9f591.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/route-table.0c0c6a9e023b4652. — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/45050.ecbe49c24eae0909.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/70862.3f55ffe7a62a1a45.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/50004.0bb8763b21de1a4f.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/47849.8fbc256e82705ce5.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/66658.c0a3aad1703d1e4a.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/94695.63b67d06a2f37112.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://www.wildberries.ru/catalog/460445507/detail.aspx — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/67947.162eadd528936e87.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/f/google-sans-cyrillic-vf.woff2 — не JSON (UnicodeDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/f/google-sans-latin-vf.woff2 — не JSON (UnicodeDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/critical.5f6855cf5d8bb72c.css — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/i/v3/header/logoWb.svg — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/index-spa.c2f0c03dec5fac88.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/i/v3/mobile-app/logo.svg — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/lang-ru.ae81ff6346f1a084.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/react-vendors.88d8eda9c1885ee — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/react-app.95a686b6c3dcbec4.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/entry.641e6c465f7afb24.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/prodversion-front-v2.json?__mf_sa — blacklist, пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/route-table.0c0c6a9e023b4652. — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/wbIdSdk-component.9e81bb77fc4 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/50004.0bb8763b21de1a4f.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/94695.63b67d06a2f37112.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/70862.3f55ffe7a62a1a45.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/47849.8fbc256e82705ce5.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/66658.c0a3aad1703d1e4a.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/15947.ff88730117b9f591.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/45050.ecbe49c24eae0909.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/78419.c800035120d7760a.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/67528.a9d0754c7dba1312.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/67947.162eadd528936e87.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/mo-ui.2eb8ba775a25b255.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/mo-ui.2eb8ba775a25b255.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/mo-icons.b2017b1f1733a303.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:25 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/mo-icons.b2017b1f1733a303.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/8981.3058f489d2922448.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/8981.3058f489d2922448.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/unblockWalletModal.314289b73e — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/byWalletBlockedPopup.0189d8fb — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/unblockWalletModal.314289b73e — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/byWalletBlockedPopup.0189d8fb — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/unblockWalletModal-component. — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/byWalletBlockedPopup-componen — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/unblockWalletBanner-component — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/customSlider-component.0a5eca — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/unblockWalletModal-component. — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/byWalletBlockedPopup-componen — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/unblockWalletBanner-component — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/customSlider-component.0a5eca — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/unblockWalletBanner.0173e9553 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/unblockWalletBanner.0173e9553 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/15524.52ca1feef814ba90.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/32129.690f748da803ae75.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/15524.52ca1feef814ba90.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/32129.690f748da803ae75.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/70295.f35a225df59be476.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/70295.f35a225df59be476.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/28536.2e69a2ea41647fbf.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/28536.2e69a2ea41647fbf.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/41865.197fe09fca26b91f.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/41865.197fe09fca26b91f.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/42952.d288f8280d4c4efc.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/22669.a2b4f69d7f7dcc54.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/42952.d288f8280d4c4efc.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/22669.a2b4f69d7f7dcc54.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/55266.deb3c84101af3389.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/55266.deb3c84101af3389.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/sentryInit.e9686051323be911.j — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/sentryInit.e9686051323be911.j — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/79700.5992888a56a4520c.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/79700.5992888a56a4520c.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/wbWalletManager.7c3c287ab4310 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/wbWalletManager.7c3c287ab4310 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/39968.b8659fcff209b846.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/54331.f9dd79d030631451.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/39968.b8659fcff209b846.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/54331.f9dd79d030631451.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | INFO     | browser.navigation | Товар 649498292 открыт (URL подтверждён)
+2026-09-24 17:29:26 | INFO     | browser.navigation | Товар 460445507 открыт (URL подтверждён)
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/96558.1a1bc1f33b27fdf5.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/96558.1a1bc1f33b27fdf5.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/95166.e2bab3198bf91d10.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/95166.e2bab3198bf91d10.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/56000.01eae7877c1acc6b.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/56000.01eae7877c1acc6b.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/28116.63285a58dbca1a9d.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/2082.91416271eee11059.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/37981.c096b665a7137d81.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/28116.63285a58dbca1a9d.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/2082.91416271eee11059.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/37981.c096b665a7137d81.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/55894.4147c6183f232a4f.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/55894.4147c6183f232a4f.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/67661.b44f741ca338d9f5.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/67661.b44f741ca338d9f5.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/17481.14ea61db392ee1f5.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/17481.14ea61db392ee1f5.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/3189.2ff3cac8bf41b853.css — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/3189.2ff3cac8bf41b853.css — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/syncPickups.18133ff67641f858. — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/syncPickups.18133ff67641f858. — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/locationWorker.0d584d2f7dea56 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/locationWorker.0d584d2f7dea56 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/71627.fc674269aa492252.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/71627.fc674269aa492252.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/71627.fc674269aa492252.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/71627.fc674269aa492252.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:26 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/94037.ef42f0ae9ea40a02.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/94037.ef42f0ae9ea40a02.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/23275.0dc9ac291224ba9c.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/23275.0dc9ac291224ba9c.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/25209.6851a1c3d5c2bc49.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/25209.6851a1c3d5c2bc49.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/25209.6851a1c3d5c2bc49.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/25209.6851a1c3d5c2bc49.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/@wildberries/sentry.c57e104ad — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/@wildberries/sentry.c57e104ad — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/react-app.341f1f5cb6816557.cs — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/react-app.341f1f5cb6816557.cs — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://marketplace-sentry.wb.ru/api/183/envelope/?sentry_version=7&sentry_key=4 — маленький JSON (2 симв < 500), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://marketplace-sentry.wb.ru/api/183/envelope/?sentry_version=7&sentry_key=4 — маленький JSON (2 симв < 500), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/34837.c6f16eb75b94beac.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/34837.c6f16eb75b94beac.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/kukpolice.94810d53a0e041f4.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/catalog-menu.51b23b05da4996e8 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: внутренняя ошибка для https://static-basket-01.wbbasket.ru/vol1/global-payment/def: 'list' object has no attribute 'get'
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/kukpolice.94810d53a0e041f4.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/settings-front.json.hash — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: внутренняя ошибка для https://static-basket-01.wbbasket.ru/vol1/global-payment/def: 'list' object has no attribute 'get'
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/settings-front.json.hash — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/catalog-menu.51b23b05da4996e8 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/promotion-creatives.json.hash — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/walletVisibilityService.a4a56 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/walletVisibilityService.a4a56 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/37079.7784c1cf4dc42869.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/37079.7784c1cf4dc42869.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:27 | INFO     | collector.orchestrator | Перехват: НЕ РАСПОЗНАН — JSON от WB-домена, но ни один чек не прошёл (products=нет, card.json=нет, route_map=нет). Запускаю LLM-анализ структуры. url=https://static-basket-01.wbbasket.ru/vol0/data/promotion-creatives.json, размер=6325 симв
+2026-09-24 17:29:27 | INFO     | core.json_structure_analyzer | LLM-mapping: старт для domain=static-basket-01.wbbasket.ru, размер JSON=6325 символов
+2026-09-24 17:29:27 | INFO     | core.json_structure_analyzer | LLM-mapping: кеш НАЙДЕН для static-basket-01.wbbasket.ru (6 полей), валидирую...
+2026-09-24 17:29:27 | INFO     | core.json_structure_analyzer | LLM-mapping: кеш ВАЛИДЕН для static-basket-01.wbbasket.ru — использую без вызова LLM
+2026-09-24 17:29:27 | WARNING  | collector.orchestrator | Перехват: LLM-mapping вернул mapping, но данные не извлеклись — url=https://static-basket-01.wbbasket.ru/vol0/data/promotion-creatives.json
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://banners-website.wildberries.ru/public/v2/banners?urltype=1024&displaytyp — JSON не dict (type=list), пропускаю
+2026-09-24 17:29:27 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/promotion-creatives.json.hash — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/sdk/sdk.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/sdk/sdk.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | INFO     | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/settings-front.json — большой JSON (382742 симв > 50К), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/main-menu-ru-ru-v3.json — JSON не dict (type=list), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/main-menu-ru-ru-v3.json — JSON не dict (type=list), пропускаю
+2026-09-24 17:29:28 | INFO     | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/settings-front.json — большой JSON (382742 симв > 50К), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/orders-service.efbce255aa6e93 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/v18.0.0-chats-remoteEntry.j — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/v18.0.0-chats-remoteEntry.j — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/orders-service.efbce255aa6e93 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/37415.37cf43936b80a58c.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/37415.37cf43936b80a58c.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/main-menu/dist/v1.5.2-mainMenu-remoteE — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/main-menu/dist/v1.5.2-mainMenu-remoteE — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/v6.11.0-product-remoteEnt — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/wbxOrders-service.233629e3692 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/v6.11.0-product-remoteEnt — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/wbxOrders-service.233629e3692 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/ai-assistant/dist/v1.9.0-aiAssistant-r — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/ai-assistant/dist/v1.9.0-aiAssistant-r — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://banners-website.wildberries.ru/public/v2/banners?urltype=1024&displaytyp — JSON не dict (type=list), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/819.6e57d65dd43a97f3.css — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/819.6e57d65dd43a97f3.css — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/user_id?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E2% — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/user_id?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E2% — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/session_start?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1% — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/pageview?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E2 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/Footer_S?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E2 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/session_start?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1% — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/pageview?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E2 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/main-menu/dist/161.ceba6e8dc73647f9.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/Alert_S?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E2% — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/main-menu/dist/161.ceba6e8dc73647f9.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/Alert_S?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E2% — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/Footer_S?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E2 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://splitter.wb.ru/v2/result — JSON не dict (type=list), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/819.6db1432f3f7aa1d7.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/819.6db1432f3f7aa1d7.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://splitter.wb.ru/v2/result — JSON не dict (type=list), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/mo-icons.06ca866f753a979a.j — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/mo-icons.06ca866f753a979a.j — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/AB_Test_Splitter_Request?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/main-menu/dist/925.2708189bf90712c9.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/main-menu/dist/925.2708189bf90712c9.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/AB_Test_Splitter_Request?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/818.e5b1335e3e98b97a.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/818.e5b1335e3e98b97a.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/848.27aaa098b65c0695.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/848.27aaa098b65c0695.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/605.0409b127ab3ef230.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/605.0409b127ab3ef230.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/mo-ui.f5f03417d365e13b.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/mo-ui.f5f03417d365e13b.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/834.a9c1129ebabe2f97.css — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/834.a9c1129ebabe2f97.css — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/14.25.3-host-remoteEntry.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/14.25.3-host-remoteEntry.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/563.b9c375ec2fda6671.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://chat-prod.wildberries.ru/api/support/v1/unauth/unread — маленький JSON (12 симв < 500), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/563.b9c375ec2fda6671.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://chat-prod.wildberries.ru/api/support/v1/unauth/unread — маленький JSON (12 симв < 500), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://chat-prod.wildberries.ru/api/support/v1/unauth/messages?message_id=0 — JSON не dict (type=list), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/ai-assistant/dist/355.ca83b3552088a098 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/834.5b2e180afaffcabd.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/ai-assistant/dist/355.ca83b3552088a098 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://chat-prod.wildberries.ru/api/support/v1/unauth/messages?message_id=0 — JSON не dict (type=list), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/834.5b2e180afaffcabd.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/ai-assistant/dist/355.e10e4e66394995d8 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/ai-assistant/dist/355.e10e4e66394995d8 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/1160.8a3a6a28472df71b.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/1160.8a3a6a28472df71b.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/ai-assistant/dist/563.3daf013bc911d26b — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/ai-assistant/dist/563.3daf013bc911d26b — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/15b222e04dbf76d4.svg — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/chats/dist/15b222e04dbf76d4.svg — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/startRequestStat.11241c6e285f — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/startRequestStat.11241c6e285f — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/Banner_SI?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/Banner_SI?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/Banner_SI?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/98798.a0ed43fc1a2264db.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/Banner_SI?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/98798.a0ed43fc1a2264db.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/Banner_SI?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/Banner_SI?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/Banner_SI?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/Banner_SI?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/performanceDeps.4c04abe23f223 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/performanceDeps.4c04abe23f223 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/5143.efd9b4ba92b9829b.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:28 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/5143.efd9b4ba92b9829b.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/MetricDataFactory.92bec0a7d5b — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/app/MetricDataFactory.92bec0a7d5b — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/5730.2d483bc8c01297b6.css — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/5730.2d483bc8c01297b6.css — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/4639.2216fc8d58a3523a.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/4639.2216fc8d58a3523a.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/5730.fde6bbdcd97ae550.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/5730.fde6bbdcd97ae550.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/8697.fa2b08ed340008bc.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/i/v3/apps/qr-apps.svg — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/8697.fa2b08ed340008bc.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/site/i/v3/apps/qr-apps.svg — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/1742.5f6e2aa20fe3999b.css — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/1742.5f6e2aa20fe3999b.css — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/1847.a6c04135987da15d.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/1847.a6c04135987da15d.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol1/crm-bnrs/self_service_media/prod/2026- — не JSON (UnicodeDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/1960.c307bbc6048b4fad.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol1/crm-bnrs/self_service_media/prod/2026- — не JSON (UnicodeDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/1960.c307bbc6048b4fad.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/5695.27f0efc71d553993.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/5695.27f0efc71d553993.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol1/crm-bnrs/self_service_media/prod/2026- — не JSON (UnicodeDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol1/crm-bnrs/self_service_media/prod/2026- — не JSON (UnicodeDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/6610.641200915e2e0e69.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/6610.641200915e2e0e69.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/3316.22f2d39b1c052b0c.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/3316.22f2d39b1c052b0c.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/8932.19a79b030ec6f7b6.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/8932.19a79b030ec6f7b6.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/6875.f0692af92f4f2927.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/6875.f0692af92f4f2927.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/1017.fc066e1d8e5cb049.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/1017.fc066e1d8e5cb049.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol1/crm-bnrs/self_service_media/prod/2026- — не JSON (UnicodeDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/1742.798b20de9938b087.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/1742.798b20de9938b087.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol1/crm-bnrs/self_service_media/prod/2026- — не JSON (UnicodeDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/2035.94b9271aa834179d.css — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/2035.94b9271aa834179d.css — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/mo-icons.9ee91d755b8c5537 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:29 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/mo-icons.9ee91d755b8c5537 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:30 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/2035.4c9a4fb99655c722.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:30 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/2035.4c9a4fb99655c722.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:30 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/653.fe462f79716e398f.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:30 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol2/product/dist/653.fe462f79716e398f.js — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:30 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/subjects-return-days-front.json.h — JSON не dict (type=str), пропускаю
+2026-09-24 17:29:30 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/subjects-return-days-front.json.h — JSON не dict (type=str), пропускаю
+2026-09-24 17:29:30 | INFO     | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/subjects-return-days-ru.json — большой JSON (58833 симв > 50К), пропускаю
+2026-09-24 17:29:30 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/adult-subjects.json — JSON не dict (type=list), пропускаю
+2026-09-24 17:29:30 | INFO     | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/subjects-return-days-ru.json — большой JSON (58833 симв > 50К), пропускаю
+2026-09-24 17:29:30 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/adult-subjects.json — JSON не dict (type=list), пропускаю
+2026-09-24 17:29:31 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/Alert_T?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E2% — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:31 | DEBUG    | collector.orchestrator | Перехват: пропуск https://data-checker.wildberries.ru/data-checker/api/v1/user/check — HTTP 204 (не 200, данные не извлекаются)
+2026-09-24 17:29:32 | DEBUG    | collector.orchestrator | Перехват: пропуск https://data-checker.wildberries.ru/data-checker/api/v1/user/check — HTTP 204 (не 200, данные не извлекаются)
+2026-09-24 17:29:32 | INFO     | collector.orchestrator | Перехват: КАРТА МАРШРУТИЗАЦИ WB (65 хостов), url=https://cdn.wbbasket.ru/api/v3/upstreams?t=1790260172391
+2026-09-24 17:29:32 | INFO     | reviews.api | Перехват карты: кеш ОБНОВЛЁН (было 0 хостов → стало 65) — WB изменил состав basket-XX
+2026-09-24 17:29:34 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/Banner_N?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E2 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:34 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/Banner_S?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E2 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:38 | DEBUG    | collector.orchestrator | Перехват: https://www.wildberries.ru/__internal/catalog/menu/v12/api?appType=1&dest=125957 — не JSON (Error), пропускаю
+2026-09-24 17:29:38 | DEBUG    | collector.orchestrator | Перехват: https://www.wildberries.ru/__internal/catalog/menu/v12/api?appType=1&dest=125957 — не JSON (Error), пропускаю
+2026-09-24 17:29:38 | DEBUG    | collector.orchestrator | Перехват: https://www.wildberries.ru/__internal/catalog/menu/v12/api?appType=1&dest=125957 — не JSON (Error), пропускаю
+2026-09-24 17:29:38 | DEBUG    | collector.orchestrator | Перехват: https://journal-bt.wildberries.ru/journal/api/v1/set — не JSON (Error), пропускаю
+2026-09-24 17:29:38 | DEBUG    | collector.orchestrator | Перехват: https://journal-bt.wildberries.ru/journal/api/v1/set — не JSON (Error), пропускаю
+2026-09-24 17:29:38 | DEBUG    | collector.orchestrator | Перехват: https://journal-bt.wildberries.ru/journal/api/v1/set — не JSON (Error), пропускаю
+2026-09-24 17:29:38 | DEBUG    | collector.orchestrator | Перехват: https://journal-bt.wildberries.ru/journal/api/v1/set — не JSON (Error), пропускаю
+2026-09-24 17:29:41 | INFO     | collector.orchestrator | Перехват: базовое окно 15с истекло без products API — грация +10с для поздних ответов (страница жива)
+2026-09-24 17:29:41 | INFO     | collector.orchestrator | Перехват: базовое окно 15с истекло без products API — грация +10с для поздних ответов (страница жива)
+2026-09-24 17:29:41 | DEBUG    | collector.orchestrator | Перехват: https://www.wildberries.ru/icon.svg — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:41 | INFO     | collector.orchestrator | Перехват: таймаут 16с — выходим (products_api=False, card_json=False)
+2026-09-24 17:29:41 | WARNING  | collector.orchestrator | Перехват: ни одного JSON-ответа от WB не получено. Продолжаем DOM-скрап.
+2026-09-24 17:29:41 | INFO     | collector.orchestrator | Перехват: таймаут 16с — выходим (products_api=False, card_json=False)
+2026-09-24 17:29:41 | WARNING  | collector.orchestrator | Перехват: ни одного JSON-ответа от WB не получено. Продолжаем DOM-скрап.
+2026-09-24 17:29:42 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/Banner_N?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E2 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:42 | DEBUG    | collector.orchestrator | Перехват: https://a.wb.ru/e/Banner_S?t=%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%E2 — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:42 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/all-poo-v12.json.hash — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:42 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/all-poo-v12.json.hash — не JSON (JSONDecodeError), пропускаю
+2026-09-24 17:29:42 | INFO     | collector.js_injection | JS-инъекция: данные найдены через meta_og (title=да, price=None, rating=None, reviews=None)
+2026-09-24 17:29:42 | INFO     | collector.orchestrator | JS-инъекция дала не всё. Missing: ['price']. Продолжаем CSS-селекторы.
+2026-09-24 17:29:42 | INFO     | collector.js_injection | JS-инъекция: данные найдены через meta_og (title=да, price=None, rating=None, reviews=None)
+2026-09-24 17:29:42 | INFO     | collector.orchestrator | JS-инъекция дала не всё. Missing: ['price']. Продолжаем CSS-селекторы.
+2026-09-24 17:29:42 | INFO     | dom.filter | DOM предфильтрован: 1503071 → 26452 байт (1.8%)
+2026-09-24 17:29:42 | DEBUG    | collector.orchestrator | DOM сохранён для отладки: /Users/vadimnoskov/Desktop/работа/wb-audit-bot-data/output/dom_client_460445507.html
+2026-09-24 17:29:42 | INFO     | navigator.ai | Найден кэш селекторов (206.0 часов назад)
+2026-09-24 17:29:42 | INFO     | dom.filter | DOM предфильтрован: 1502718 → 26108 байт (1.7%)
+2026-09-24 17:29:42 | DEBUG    | collector.orchestrator | DOM сохранён для отладки: /Users/vadimnoskov/Desktop/работа/wb-audit-bot-data/output/dom_competitor_649498292.html
+2026-09-24 17:29:42 | INFO     | navigator.ai | Найден кэш селекторов (206.0 часов назад)
+2026-09-24 17:29:43 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/all-poo-frn-v12.json — JSON не dict (type=list), пропускаю
+2026-09-24 17:29:43 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/all-poo-frn-v12.json — JSON не dict (type=list), пропускаю
+2026-09-24 17:29:43 | INFO     | collector.scraper | Валидация селекторов: 5/9 работают | сломаны: characteristics, characteristics_expand, reviews_tab, seller_name
+2026-09-24 17:29:43 | INFO     | collector.orchestrator | Кэшированные селекторы валидны: 5/9
+2026-09-24 17:29:43 | INFO     | collector.scraper | Валидация селекторов: 5/9 работают | сломаны: characteristics, characteristics_expand, reviews_tab, seller_name
+2026-09-24 17:29:43 | INFO     | collector.orchestrator | Кэшированные селекторы валидны: 5/9
+2026-09-24 17:29:43 | INFO     | collector.orchestrator | Собрано (API+браузер): title='Парфюмированный мист для тела и волос Cherry eclipse' price=None rating=None reviews=0 photo=да all_photos=11
+2026-09-24 17:29:43 | DEBUG    | collector.orchestrator | Перехват: https://www.wildberries.ru/__internal/u-card/cards/v4/detail?appType=1&curr=rub& — не JSON (TargetClosedError), пропускаю
+2026-09-24 17:29:43 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/all-poo-fr-v12.json — не JSON (TargetClosedError), пропускаю
+2026-09-24 17:29:43 | DEBUG    | collector.orchestrator | Перехват: https://www.wildberries.ru/__internal/catalog/menu/v12/api?appType=1&dest=125957 — не JSON (TargetClosedError), пропускаю
+2026-09-24 17:29:43 | INFO     | collector.orchestrator | Собрано (API+браузер): title='Мист для тела и волос парфюмированный' price=None rating=None reviews=0 photo=да all_photos=19
+2026-09-24 17:29:43 | DEBUG    | collector.orchestrator | Перехват: https://static-basket-01.wbbasket.ru/vol0/data/all-poo-fr-v12.json — не JSON (TargetClosedError), пропускаю
+2026-09-24 17:29:43 | INFO     | collector.orchestrator | Клиент (460445507): собрано
+2026-09-24 17:29:43 | INFO     | collector.orchestrator | Конкурент 1 (649498292): собрано
+2026-09-24 17:29:43 | INFO     | collector.orchestrator | Сбор данных завершён: клиент + 1 конкурентов
+2026-09-24 17:29:43 | INFO     | pipeline | Сбор данных завершён: клиент + 1 конкурентов
+2026-09-24 17:29:43 | INFO     | pipeline | [3/6] ✓ scrape_products — завершён (24.6s)
+2026-09-24 17:29:43 | DEBUG    | core.checkpoint | Чекпоинт сохранён: шаг collect_reviews, завершено 3
+2026-09-24 17:29:43 | INFO     | pipeline | [4/6] → collect_reviews
+2026-09-24 17:29:43 | DEBUG    | core.progress | Прогресс: [4/6] running — collect_reviews
+2026-09-24 17:29:43 | INFO     | navigator.ai | Кэш селекторов загружен: 1 записей
+2026-09-24 17:29:43 | INFO     | navigator.ai | Найден кэш селекторов (206.0 часов назад)
+2026-09-24 17:29:43 | INFO     | pipeline | Используются кэшированные селекторы (CollectReviewsStep)
+2026-09-24 17:29:43 | INFO     | pipeline | Параллельный сбор отзывов: клиент + конкуренты
+2026-09-24 17:29:43 | INFO     | pipeline | Сбор отзывов для товара КЛИЕНТА
+2026-09-24 17:29:43 | INFO     | reviews.api | card.json: SKU=460445507 (vol=4604, part=460445) — старт Tier 0/1
+2026-09-24 17:29:43 | INFO     | reviews.api | Карта: загрузка (vol=4604, _route_map=пусто)
+2026-09-24 17:29:43 | INFO     | reviews.api | Карта маршрутизации: загружена из кеша на диске (4 ключей, age=10с, TTL=604800с)
+2026-09-24 17:29:43 | INFO     | reviews.api | Карта: vol=4604 → basket-26.wbbasket.ru (найден в кеше)
+2026-09-24 17:29:43 | INFO     | reviews.api | card.json: Tier 0 — запрос к https://basket-26.wbbasket.ru/vol4604/part460445/460445507/info/ru/card.json
+2026-09-24 17:29:43 | INFO     | pipeline | Сбор отзывов для КОНКУРЕНТА 1/1
+2026-09-24 17:29:43 | INFO     | reviews.api | card.json: SKU=649498292 (vol=6494, part=649498) — старт Tier 0/1
+2026-09-24 17:29:43 | INFO     | reviews.api | Карта: vol=6494 → basket-32.wbbasket.ru (найден в кеше)
+2026-09-24 17:29:43 | INFO     | reviews.api | card.json: Tier 0 — запрос к https://basket-32.wbbasket.ru/vol6494/part649498/649498292/info/ru/card.json
+2026-09-24 17:29:43 | INFO     | reviews.api | card.json: Tier 0 УСПЕХ — basket-32.wbbasket.ru, description=да, imt_id=да, chars=8
+2026-09-24 17:29:43 | INFO     | core.endpoint_registry | Реестр: эндпоинт card_json обновлён (domain=basket-32.wbbasket.ru)
+2026-09-24 17:29:43 | INFO     | reviews.api | Используем card.json как primary source для SKU=649498292
+2026-09-24 17:29:43 | INFO     | reviews.api | card.json: Tier 0 УСПЕХ — basket-26.wbbasket.ru, description=да, imt_id=да, chars=8
+2026-09-24 17:29:43 | INFO     | core.endpoint_registry | Реестр: эндпоинт card_json обновлён (domain=basket-26.wbbasket.ru)
+2026-09-24 17:29:43 | INFO     | reviews.api | Используем card.json как primary source для SKU=460445507
+2026-09-24 17:29:43 | DEBUG    | reviews.api | HTTP 403 (антибот/IP-блок, без ретраев): https://www.wildberries.ru/__internal/u-card/cards/v4/detail?curr=rub&dest=-1257
+2026-09-24 17:29:43 | INFO     | reviews.api | Карта: vol=6494 → basket-32.wbbasket.ru (найден в кеше)
+2026-09-24 17:29:43 | INFO     | reviews.api | Фото: card.json (photo_count=11) + card.wb.ru не дали URL — сгенерировано 11 URL через route map (host=basket-32.wbbasket.ru)
+2026-09-24 17:29:43 | INFO     | reviews.fetcher | Card API: SKU=649498292 | description=1508 символов | характеристики=8 пар | фото=11 шт | imt_id=171213271
+2026-09-24 17:29:43 | INFO     | reviews.fetcher | Описание получено из Card API (1508 символов)
+2026-09-24 17:29:43 | INFO     | reviews.fetcher | Характеристики из Card API (9 пар)
+2026-09-24 17:29:43 | INFO     | reviews.fetcher | group_nm_ids: 29 вариантов товара (для клика по табу отзывов)
+2026-09-24 17:29:43 | DEBUG    | reviews.api | HTTP 403 (антибот/IP-блок, без ретраев): https://www.wildberries.ru/__internal/u-card/cards/v4/detail?curr=rub&dest=-1257
+2026-09-24 17:29:43 | INFO     | reviews.api | Карта: vol=4604 → basket-26.wbbasket.ru (найден в кеше)
+2026-09-24 17:29:43 | INFO     | reviews.api | Фото: card.json (photo_count=19) + card.wb.ru не дали URL — сгенерировано 19 URL через route map (host=basket-26.wbbasket.ru)
+2026-09-24 17:29:43 | INFO     | reviews.fetcher | Card API: SKU=460445507 | description=1530 символов | характеристики=8 пар | фото=19 шт | imt_id=2138383492
+2026-09-24 17:29:43 | INFO     | reviews.fetcher | Описание получено из Card API (1530 символов)
+2026-09-24 17:29:43 | INFO     | reviews.fetcher | Характеристики из Card API (9 пар)
+2026-09-24 17:29:43 | INFO     | reviews.fetcher | group_nm_ids: 20 вариантов товара (для клика по табу отзывов)
+2026-09-24 17:29:43 | INFO     | reviews.fetcher | Попытка сбора отзывов через API (SKU=460445507, цель=500 валидных)
+2026-09-24 17:29:43 | INFO     | reviews.api | API: целевой сбор SKU=460445507, nmId=460445507, imtId=2138383492, цель=500 валидных, окно=0 мес.
+2026-09-24 17:29:43 | INFO     | reviews.fetcher | Попытка сбора отзывов через API (SKU=649498292, цель=500 валидных)
+2026-09-24 17:29:43 | INFO     | reviews.api | API: целевой сбор SKU=649498292, nmId=649498292, imtId=171213271, цель=500 валидных, окно=0 мес.
+2026-09-24 17:29:43 | INFO     | reviews.api | API v2: получено 1025 сырых отзывов
+2026-09-24 17:29:43 | INFO     | reviews.api | Per-SKU ПОЛНОЕ распределение (nmValuationDistribution, nmId=460445507): 5★=3476, 4★=260, 3★=91, 2★=54, 1★=101 (всего 3982 отзывов на товаре)
+2026-09-24 17:29:43 | INFO     | reviews.api | Дедупликация: 1025 → 1025 (дублей: 0)
+2026-09-24 17:29:43 | INFO     | reviews.api | Фильтрация: nmId=460445507 → ✅ совпадение: 91, ❓ без nmId: 0, ❌ др.nmId: 934, 🚫 скрытые: 0, ⬜ пустые: 0
+2026-09-24 17:29:43 | INFO     | reviews.api | ФИНАЛЬНЫЙ результат после фильтрации: 91 отзывов
+2026-09-24 17:29:43 | INFO     | reviews.api | Per-SKU звёзды (только nmId=460445507): 5★=69, 4★=8, 3★=5, 2★=4, 1★=5 (всего 91)
+2026-09-24 17:29:44 | INFO     | reviews.fetcher | API сработал: 91 сырых → 53 валидных
+2026-09-24 17:29:44 | INFO     | reviews.fetcher | Статистика фильтрации донора: сырых=1025, после дедуп=1025, nmId совпадение=91, скрытые=0, пустые=0, др.nmId=934
+2026-09-24 17:29:44 | INFO     | reviews.fetcher | Гибридный добор: API дал 53/500, добираем 447 через браузер...
+2026-09-24 17:29:44 | INFO     | reviews.api | API v2: получено 1011 сырых отзывов
+2026-09-24 17:29:44 | INFO     | reviews.api | Per-SKU ПОЛНОЕ распределение (nmValuationDistribution, nmId=649498292): 5★=1139, 4★=154, 3★=89, 2★=79, 1★=181 (всего 1642 отзывов на товаре)
+2026-09-24 17:29:44 | INFO     | reviews.api | Дедупликация: 1011 → 1011 (дублей: 0)
+2026-09-24 17:29:44 | INFO     | reviews.api | Фильтрация: nmId=649498292 → ✅ совпадение: 72, ❓ без nmId: 0, ❌ др.nmId: 939, 🚫 скрытые: 0, ⬜ пустые: 0
+2026-09-24 17:29:44 | INFO     | reviews.api | ФИНАЛЬНЫЙ результат после фильтрации: 72 отзывов
+2026-09-24 17:29:44 | INFO     | reviews.api | Per-SKU звёзды (только nmId=649498292): 5★=35, 4★=13, 3★=7, 2★=5, 1★=12 (всего 72)
+2026-09-24 17:29:44 | INFO     | reviews.fetcher | API сработал: 72 сырых → 45 валидных
+2026-09-24 17:29:44 | INFO     | reviews.fetcher | Статистика фильтрации донора: сырых=1011, после дедуп=1011, nmId совпадение=72, скрытые=0, пустые=0, др.nmId=939
+2026-09-24 17:29:44 | INFO     | reviews.fetcher | Гибридный добор: API дал 45/500, добираем 455 через браузер...
+2026-09-24 17:29:44 | INFO     | reviews.browser | Используем SPA-навигацию для перехода к отзывам
+2026-09-24 17:29:44 | INFO     | browser.navigation | Навигация к отзывам: https://www.wildberries.ru/catalog/460445507/feedbacks?imtId=2138383492
+2026-09-24 17:29:44 | INFO     | reviews.browser | Используем SPA-навигацию для перехода к отзывам
+2026-09-24 17:29:44 | INFO     | browser.navigation | Навигация к отзывам: https://www.wildberries.ru/catalog/649498292/feedbacks?imtId=171213271
+2026-09-24 17:29:48 | INFO     | browser.navigation | Ожидание контейнера отзывов (до 12 с): .comments__item, .feedback__text, [class*="feedback"], [class*="comment"]
+2026-09-24 17:29:48 | INFO     | browser.navigation | Ожидание контейнера отзывов (до 12 с): .comments__item, .feedback__text, [class*="feedback"], [class*="comment"]
+2026-09-24 17:30:00 | WARNING  | browser.navigation | wait_for_selector не дождался контейнера отзывов за 12 с. Это НЕ значит, что отзывов 0: ленивая загрузка/другой DOM/медленный рендер — сбор продолжается по остальным селекторам и перехватам.
+2026-09-24 17:30:00 | WARNING  | browser.navigation | wait_for_selector не дождался контейнера отзывов за 12 с. Это НЕ значит, что отзывов 0: ленивая загрузка/другой DOM/медленный рендер — сбор продолжается по остальным селекторам и перехватам.
+2026-09-24 17:30:01 | INFO     | browser.navigation | Навигация успешна: отзывы загружены
+2026-09-24 17:30:01 | INFO     | reviews.browser | Табы вариантов товара не найдены (возможно у товара 1 вариант) — пропускаем клик
+2026-09-24 17:30:01 | WARNING  | reviews.browser | Нет селектора review_item — невозможно собрать отзывы
+2026-09-24 17:30:01 | INFO     | reviews.browser | Собрано отзывов через браузер: 0
+2026-09-24 17:30:01 | INFO     | reviews.fetcher | Гибридный добор: браузер не дал дополнительных отзывов
+2026-09-24 17:30:01 | INFO     | reviews.fetcher | Per-SKU отзывов меньше цели: собрано 45 из 500 (всего на nmId: 1642, на товаре с учётом всех SKU: 22334).
+2026-09-24 17:30:01 | INFO     | reviews.fetcher | v2.9: отделено ответов продавца: 43 (осталось валидных отзывов: 45)
+2026-09-24 17:30:01 | INFO     | reviews.fetcher | Используем per-SKU ПОЛНОЕ распределение звёзд: 1642 отзывов (nmValuationDistribution)
+2026-09-24 17:30:01 | INFO     | reviews.fetcher | Отзывы: всего собрано сырых 72, реально отфильтровано 27 (пустые/короткие/дубли), smart selection: не запускался (отзывов 45 ≤ цели 500), ответов продавца отделено: 43, оставлено валидных отзывов 45 (цель: 500), всего на товаре (per-SKU): 1642, группа SKU (справочно): 22334
+2026-09-24 17:30:01 | INFO     | browser.navigation | Навигация успешна: отзывы загружены
+2026-09-24 17:30:01 | INFO     | reviews.browser | Табы вариантов товара не найдены (возможно у товара 1 вариант) — пропускаем клик
+2026-09-24 17:30:01 | WARNING  | reviews.browser | Нет селектора review_item — невозможно собрать отзывы
+2026-09-24 17:30:01 | INFO     | reviews.browser | Собрано отзывов через браузер: 0
+2026-09-24 17:30:01 | INFO     | reviews.fetcher | Гибридный добор: браузер не дал дополнительных отзывов
+2026-09-24 17:30:01 | INFO     | reviews.fetcher | Per-SKU отзывов меньше цели: собрано 53 из 500 (всего на nmId: 1642, на товаре с учётом всех SKU: 111076).
+2026-09-24 17:30:01 | INFO     | reviews.fetcher | v2.9: отделено ответов продавца: 53 (осталось валидных отзывов: 53)
+2026-09-24 17:30:01 | INFO     | reviews.fetcher | Используем per-SKU ПОЛНОЕ распределение звёзд: 3982 отзывов (nmValuationDistribution)
+2026-09-24 17:30:01 | INFO     | reviews.fetcher | Отзывы: всего собрано сырых 91, реально отфильтровано 38 (пустые/короткие/дубли), smart selection: не запускался (отзывов 53 ≤ цели 500), ответов продавца отделено: 53, оставлено валидных отзывов 53 (цель: 500), всего на товаре (per-SKU): 3982, группа SKU (справочно): 111076
+2026-09-24 17:30:01 | INFO     | pipeline | Сбор отзывов завершён: клиент=53, конкуренты=45
+2026-09-24 17:30:01 | INFO     | pipeline | [4/6] ✓ collect_reviews — завершён (18.0s)
+2026-09-24 17:30:01 | DEBUG    | core.checkpoint | Чекпоинт сохранён: шаг ai_analysis, завершено 4
+2026-09-24 17:30:01 | INFO     | pipeline | [5/6] → ai_analysis
+2026-09-24 17:30:01 | DEBUG    | core.progress | Прогресс: [5/6] running — ai_analysis
+2026-09-24 17:30:01 | INFO     | pipeline | Сборка JSON с сырыми данными...
+2026-09-24 17:30:01 | INFO     | core.assembler | Валидация пройдена: 98 отзывов, 1 конкурентов
+2026-09-24 17:30:01 | INFO     | core.output_organizer | Папка прогона: /Users/vadimnoskov/Desktop/работа/wb-audit-bot-data/output/2026-09-24/1_f6b94e89_1730
+2026-09-24 17:30:01 | INFO     | core.assembler | JSON сохранён: /Users/vadimnoskov/Desktop/работа/wb-audit-bot-data/output/2026-09-24/1_f6b94e89_1730/1_f6b94e89_1730.json
+2026-09-24 17:30:01 | INFO     | core.assembler | Статистика: клиент reviews=53, конкуренты reviews=45, всего 98 отзывов, файл 2263.4 КБ
+2026-09-24 17:30:01 | INFO     | core.validators | Валидация пройдена: 53 отзывов, 1 конкурентов, звёзды: 100%
+2026-09-24 17:30:01 | INFO     | pipeline | Запуск ИИ-анализа...
+2026-09-24 17:30:01 | INFO     | analyzer.orchestrator |   ⏳ Предзагрузка моделей RAG...
+2026-09-24 17:30:01 | INFO     | rag.embedding_cache |   ⏳ Загрузка dense-модели FastEmbed (sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2) — ~18 сек один раз…
+2026-09-24 17:30:02 | INFO     | rag.embedding_cache |   ⏳ Загрузка sparse-модели FastEmbed (Qdrant/bm25)…
+2026-09-24 17:30:02 | INFO     | analyzer.orchestrator |   ✓ Модели RAG загружены
+2026-09-24 17:30:02 | INFO     | rag.signals | RAG signals: category=cat_beauty (Красота и здоровье), subj_name='Спреи', found_issues=5 шт: запах (7.5%), пахнет (3.8%), выветривается (3.8%)
+2026-09-24 17:30:02 | INFO     | analyzer.orchestrator | [5/6] Stage 1: запуск 6 под-стадий параллельно
+2026-09-24 17:30:02 | INFO     | analyzer.orchestrator | [5/6]   1A: старт (6 негативных отзывов)
+2026-09-24 17:30:02 | DEBUG    | analyzer.prompt_loader | Загрузка промпта: substage_1a_v1.0.yaml
+2026-09-24 17:30:02 | INFO     | analyzer.prompt_loader | Промпт загружен: substage_1a_v1.0 (system_prompt=6624 символов)
+2026-09-24 17:30:02 | INFO     | analyzer.orchestrator | [5/6]   1B: старт (43 позитивных отзывов)
+2026-09-24 17:30:02 | DEBUG    | analyzer.prompt_loader | Загрузка промпта: substage_1b_v1.0.yaml
+2026-09-24 17:30:02 | INFO     | rag.router | RAG substage '1a': query='Красота и здоровье, запах, пахнет, выветривается, мист, эффектно'
+2026-09-24 17:30:02 | INFO     | analyzer.prompt_loader | Промпт загружен: substage_1b_v1.0 (system_prompt=2244 символов)
+2026-09-24 17:30:02 | INFO     | analyzer.orchestrator | [5/6]   1C: старт (предагрегация)
+2026-09-24 17:30:02 | INFO     | rag.sku_memory | SKU-память: фото SKU=460445507 idx=0 изменилось — VLM нужно гонять заново
+2026-09-24 17:30:02 | DEBUG    | analyzer.prompt_loader | Загрузка промпта: substage_1c_v1.0.yaml
+2026-09-24 17:30:02 | INFO     | rag.router | RAG substage '1b': query='Красота и здоровье, запах, аромат, мист, приятный, пахнет'
+2026-09-24 17:30:02 | INFO     | analyzer.prompt_loader | Промпт загружен: substage_1c_v1.0 (system_prompt=1419 символов)
+2026-09-24 17:30:02 | INFO     | analyzer.orchestrator | [5/6]   1D: старт (1 конкурентов с отзывами)
+2026-09-24 17:30:02 | DEBUG    | analyzer.prompt_loader | Загрузка промпта: substage_1d_v1.0.yaml
+2026-09-24 17:30:02 | INFO     | rag.router | RAG substage '1c': query='Красота и здоровье, рейтинг 0, негатив 11.3%'
+2026-09-24 17:30:02 | INFO     | analyzer.prompt_loader | Промпт загружен: substage_1d_v1.0 (system_prompt=1423 символов)
+2026-09-24 17:30:02 | INFO     | rag.router | RAG substage '1d': query='Красота и здоровье, конкурент, запах, минут, эклипс, мист, вишни'
+2026-09-24 17:30:02 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash task=seller_answers (max_tokens=12000)…
+2026-09-24 17:30:02 | INFO     | analyzer.photo | VLM-анализ фото для: Мист для тела и волос парфюмированный, фото: 19 шт. (отдельный вызов на каждое, все параллельно)
+2026-09-24 17:30:02 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash-vision-exp task=vision (max_tokens=8000)…
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash-vision-exp task=vision (max_tokens=8000)…
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash-vision-exp task=vision (max_tokens=8000)…
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash-vision-exp task=vision (max_tokens=8000)…
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash-vision-exp task=vision (max_tokens=8000)…
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash-vision-exp task=vision (max_tokens=8000)…
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash-vision-exp task=vision (max_tokens=8000)…
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash-vision-exp task=vision (max_tokens=8000)…
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash-vision-exp task=vision (max_tokens=8000)…
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash-vision-exp task=vision (max_tokens=8000)…
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash-vision-exp task=vision (max_tokens=8000)…
+2026-09-24 17:30:03 | INFO     | rag.qdrant_client | Qdrant: server-режим (url=http://localhost:6333)
+2026-09-24 17:30:03 | INFO     | rag.qdrant_client | Qdrant: server-режим (url=http://localhost:6333)
+2026-09-24 17:30:03 | INFO     | rag.qdrant_client | Qdrant: server-режим (url=http://localhost:6333)
+2026-09-24 17:30:03 | INFO     | rag.qdrant_client | Qdrant: server-режим (url=http://localhost:6333)
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash-vision-exp task=vision (max_tokens=8000)…
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: уровень 1 (всегда) — 8 карточек (core only)
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: query для уровня 2: 'Красота и здоровье, рейтинг 0, негатив 11.3%'
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: уровень 1 (всегда) — 8 карточек (core only)
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: уровень 1 (всегда) — 8 карточек (core only)
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: query для уровня 2: 'Красота и здоровье, конкурент, запах, минут, эклипс, мист, вишни'
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: уровень 1 (всегда) — 8 карточек (core only)
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: query для уровня 2: 'Красота и здоровье, запах, пахнет, выветривается, мист, эффектно'
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: query для уровня 2: 'Красота и здоровье, запах, аромат, мист, приятный, пахнет'
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash-vision-exp task=vision (max_tokens=8000)…
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: уровень 2 (hybrid retrieval) — 8 карточек (domain/narrow_wb/auto_generated, top_k=8)
+2026-09-24 17:30:03 | INFO     | rag.retrieval |   → D6: Методика анализа конкурентов (score=0.7000)
+2026-09-24 17:30:03 | INFO     | rag.retrieval |   → D7: Поиск скрытых преимуществ товара (score=0.5000)
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: уровень 2 (hybrid retrieval) — 8 карточек (domain/narrow_wb/auto_generated, top_k=8)
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: уровень 2 (hybrid retrieval) — 8 карточек (domain/narrow_wb/auto_generated, top_k=8)
+2026-09-24 17:30:03 | INFO     | rag.retrieval |   → D10: Конкурентный анализ: лидеры, преимущества, слабост (score=0.4583)
+2026-09-24 17:30:03 | INFO     | rag.retrieval |   → D7: Поиск скрытых преимуществ товара (score=1.0000)
+2026-09-24 17:30:03 | INFO     | rag.retrieval |   → D2: Связь негативных отзывов и потери продаж (score=0.8333)
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: итого 16 карточек (level1=8 + level2=8)
+2026-09-24 17:30:03 | INFO     | rag.retrieval |   → W4: Метрики здоровья карточки на Wildberries (score=0.4583)
+2026-09-24 17:30:03 | INFO     | rag.retrieval |   → D19: Связь качества ответов продавца с продажами и рейт (score=0.5769)
+2026-09-24 17:30:03 | INFO     | rag.retrieval |   → D8: Покупательские инсайты (score=0.3611)
+2026-09-24 17:30:03 | INFO     | rag.retrieval |   → W4: Метрики здоровья карточки на Wildberries (score=0.4167)
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: итого 16 карточек (level1=8 + level2=8)
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: итого 16 карточек (level1=8 + level2=8)
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: уровень 2 (hybrid retrieval) — 8 карточек (domain/narrow_wb/auto_generated, top_k=8)
+2026-09-24 17:30:03 | INFO     | rag.retrieval |   → W4: Метрики здоровья карточки на Wildberries (score=0.6111)
+2026-09-24 17:30:03 | INFO     | rag.retrieval |   → D7: Поиск скрытых преимуществ товара (score=0.5000)
+2026-09-24 17:30:03 | INFO     | rag.retrieval |   → D3: Сигналы сильной карточки товара (score=0.3922)
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: итого 16 карточек (level1=8 + level2=8)
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: контекст базы знаний — 16283 символов, ~4070 токенов
+2026-09-24 17:30:03 | INFO     | rag.router | RAG substage '1d': используется семантический retrieval
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: контекст базы знаний — 16956 символов, ~4239 токенов
+2026-09-24 17:30:03 | INFO     | rag.router | RAG substage '1b': используется семантический retrieval
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash-vision-exp task=vision (max_tokens=8000)…
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: контекст базы знаний — 18591 символов, ~4647 токенов
+2026-09-24 17:30:03 | INFO     | rag.router | RAG substage '1c': используется семантический retrieval
+2026-09-24 17:30:03 | INFO     | rag.retrieval | RAG: контекст базы знаний — 16260 символов, ~4065 токенов
+2026-09-24 17:30:03 | INFO     | rag.router | RAG substage '1a': используется семантический retrieval
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash-vision-exp task=vision (max_tokens=8000)…
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash-vision-exp task=vision (max_tokens=8000)…
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash-vision-exp task=vision (max_tokens=8000)…
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash-vision-exp task=vision (max_tokens=8000)…
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash-vision-exp task=vision (max_tokens=8000)…
+2026-09-24 17:30:03 | INFO     | analyzer.orchestrator | [5/6]   1D: RAG retrieval завершён за 1.05s (контекст=16283 симв)
+2026-09-24 17:30:03 | INFO     | analyzer.orchestrator | [5/6]   1B: RAG retrieval завершён за 1.06s (контекст=16956 симв)
+2026-09-24 17:30:03 | INFO     | analyzer.orchestrator | [5/6]   1B: запрос к LLM (system=19202 симв, user=7058 симв)
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash task=analysis (max_tokens=12000)…
+2026-09-24 17:30:03 | INFO     | analyzer.orchestrator | [5/6]   1C: RAG retrieval завершён за 1.07s (контекст=18591 симв)
+2026-09-24 17:30:03 | INFO     | analyzer.orchestrator | [5/6]   1C: запрос к LLM (system=20012 симв, user=690 симв)
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash task=analysis (max_tokens=12000)…
+2026-09-24 17:30:03 | INFO     | analyzer.orchestrator | [5/6]   1A: RAG retrieval завершён за 1.09s (контекст=16260 симв)
+2026-09-24 17:30:03 | INFO     | analyzer.orchestrator | [5/6]   1A: запрос к LLM (system=22886 симв, user=2993 симв)
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash task=analysis (max_tokens=12000)…
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 1.1s — читаю тело (генерация LLM)…
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash task=analysis (max_tokens=12000)…
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.7s — читаю тело (генерация LLM)…
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 1.1s — читаю тело (генерация LLM)…
+2026-09-24 17:30:03 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.8s — читаю тело (генерация LLM)…
+2026-09-24 17:30:04 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.9s — читаю тело (генерация LLM)…
+2026-09-24 17:30:04 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 1.0s — читаю тело (генерация LLM)…
+2026-09-24 17:30:04 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 1.0s — читаю тело (генерация LLM)…
+2026-09-24 17:30:04 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 1.0s — читаю тело (генерация LLM)…
+2026-09-24 17:30:04 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.8s — читаю тело (генерация LLM)…
+2026-09-24 17:30:04 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.9s — читаю тело (генерация LLM)…
+2026-09-24 17:30:04 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 1.0s — читаю тело (генерация LLM)…
+2026-09-24 17:30:04 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.9s — читаю тело (генерация LLM)…
+2026-09-24 17:30:04 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.9s — читаю тело (генерация LLM)…
+2026-09-24 17:30:04 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.8s — читаю тело (генерация LLM)…
+2026-09-24 17:30:04 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.9s — читаю тело (генерация LLM)…
+2026-09-24 17:30:04 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.9s — читаю тело (генерация LLM)…
+2026-09-24 17:30:04 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 1.1s — читаю тело (генерация LLM)…
+2026-09-24 17:30:04 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 1.2s — читаю тело (генерация LLM)…
+2026-09-24 17:30:04 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 1.2s — читаю тело (генерация LLM)…
+2026-09-24 17:30:04 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 1.8s (заголовки 0.7s + тело 1.2s)
+2026-09-24 17:30:04 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash-vision-exp: 676 символов, токены: in=1007 (hit=0, miss=1007), out=244
+2026-09-24 17:30:04 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 1.3s — читаю тело (генерация LLM)…
+2026-09-24 17:30:04 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 1.3s — читаю тело (генерация LLM)…
+2026-09-24 17:30:05 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 1.3s — читаю тело (генерация LLM)…
+2026-09-24 17:30:05 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 1.3s — читаю тело (генерация LLM)…
+2026-09-24 17:30:05 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 2.1s (заголовки 0.8s + тело 1.3s)
+2026-09-24 17:30:05 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash-vision-exp: 622 символов, токены: in=1007 (hit=0, miss=1007), out=217
+2026-09-24 17:30:05 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 1.4s — читаю тело (генерация LLM)…
+2026-09-24 17:30:05 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 1.9s (заголовки 0.9s + тело 0.9s)
+2026-09-24 17:30:05 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash-vision-exp: 600 символов, токены: in=1007 (hit=512, miss=495), out=214
+2026-09-24 17:30:05 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 2.7s (заголовки 1.1s + тело 1.6s)
+2026-09-24 17:30:05 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash-vision-exp: 987 символов, токены: in=1007 (hit=0, miss=1007), out=352
+2026-09-24 17:30:05 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 1.9s (заголовки 0.9s + тело 1.1s)
+2026-09-24 17:30:05 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash-vision-exp: 611 символов, токены: in=1007 (hit=512, miss=495), out=219
+2026-09-24 17:30:05 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 2.1s (заголовки 1.0s + тело 1.2s)
+2026-09-24 17:30:05 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash-vision-exp: 668 символов, токены: in=1007 (hit=512, miss=495), out=231
+2026-09-24 17:30:05 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 2.1s (заголовки 0.8s + тело 1.3s)
+2026-09-24 17:30:05 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash-vision-exp: 688 символов, токены: in=1007 (hit=512, miss=495), out=237
+2026-09-24 17:30:05 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 2.4s (заголовки 1.0s + тело 1.4s)
+2026-09-24 17:30:05 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash-vision-exp: 649 символов, токены: in=1007 (hit=512, miss=495), out=233
+2026-09-24 17:30:05 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 2.5s (заголовки 0.9s + тело 1.6s)
+2026-09-24 17:30:05 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash-vision-exp: 766 символов, токены: in=1007 (hit=0, miss=1007), out=259
+2026-09-24 17:30:05 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 2.3s (заголовки 0.9s + тело 1.4s)
+2026-09-24 17:30:05 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash-vision-exp: 854 символов, токены: in=1007 (hit=512, miss=495), out=300
+2026-09-24 17:30:05 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 2.2s (заголовки 0.8s + тело 1.4s)
+2026-09-24 17:30:05 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash-vision-exp: 611 символов, токены: in=1007 (hit=512, miss=495), out=209
+2026-09-24 17:30:05 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 2.5s (заголовки 1.0s + тело 1.6s)
+2026-09-24 17:30:05 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash-vision-exp: 620 символов, токены: in=1007 (hit=512, miss=495), out=220
+2026-09-24 17:30:05 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 2.6s (заголовки 1.0s + тело 1.7s)
+2026-09-24 17:30:05 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash-vision-exp: 963 символов, токены: in=1007 (hit=512, miss=495), out=322
+2026-09-24 17:30:05 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 2.4s (заголовки 0.9s + тело 1.5s)
+2026-09-24 17:30:05 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash-vision-exp: 846 символов, токены: in=1007 (hit=512, miss=495), out=294
+2026-09-24 17:30:06 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 2.4s (заголовки 1.2s + тело 1.2s)
+2026-09-24 17:30:06 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash-vision-exp: 728 символов, токены: in=1007 (hit=512, miss=495), out=241
+2026-09-24 17:30:06 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 2.5s (заголовки 1.1s + тело 1.4s)
+2026-09-24 17:30:06 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash-vision-exp: 581 символов, токены: in=1007 (hit=512, miss=495), out=215
+2026-09-24 17:30:06 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 2.6s (заголовки 1.2s + тело 1.4s)
+2026-09-24 17:30:06 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash-vision-exp: 815 символов, токены: in=1007 (hit=512, miss=495), out=272
+2026-09-24 17:30:06 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 2.7s (заголовки 0.9s + тело 1.7s)
+2026-09-24 17:30:06 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash-vision-exp: 789 символов, токены: in=1007 (hit=512, miss=495), out=277
+2026-09-24 17:30:06 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 3.8s (заголовки 1.1s + тело 2.7s)
+2026-09-24 17:30:06 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash: 2535 символов, токены: in=3176 (hit=0, miss=3176), out=800
+2026-09-24 17:30:06 | INFO     | analyzer.seller_answers | Анализ ответов продавца: quality_score=7/10, issues=5, recommendations=4
+2026-09-24 17:30:06 | INFO     | analyzer.orchestrator | [5/6]   1E (seller answers): quality=7/10
+2026-09-24 17:30:06 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 2.9s (заголовки 1.3s + тело 1.7s)
+2026-09-24 17:30:06 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash-vision-exp: 866 символов, токены: in=1007 (hit=512, miss=495), out=285
+2026-09-24 17:30:06 | INFO     | analyzer.photo | VLM-анализ завершён: общий балл 7/10, красных флагов: 5, проанализировано фото: 19/19
+2026-09-24 17:30:06 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash task=analysis (max_tokens=2000)…
+2026-09-24 17:30:06 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 3.1s (заголовки 1.3s + тело 1.8s)
+2026-09-24 17:30:06 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash: 895 символов, токены: in=7446 (hit=2944, miss=4502), out=311
+2026-09-24 17:30:06 | INFO     | analyzer.orchestrator | [5/6]   1C: sentiment=?, trust=?
+2026-09-24 17:30:07 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.5s — читаю тело (генерация LLM)…
+2026-09-24 17:30:08 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 4.6s (заголовки 1.3s + тело 3.3s)
+2026-09-24 17:30:08 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash: 2506 символов, токены: in=9133 (hit=2944, miss=6189), out=770
+2026-09-24 17:30:08 | INFO     | analyzer.orchestrator | [5/6]   1D: 5 жалоб, 4 сил по 1 конкурентам
+2026-09-24 17:30:09 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 5.7s (заголовки 1.3s + тело 4.4s)
+2026-09-24 17:30:09 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash: 3734 символов, токены: in=9193 (hit=3200, miss=5993), out=1114
+2026-09-24 17:30:09 | INFO     | analyzer.orchestrator | [5/6]   1B: 5 сильных сторон найдено
+2026-09-24 17:30:10 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 7.1s (заголовки 1.4s + тело 5.6s)
+2026-09-24 17:30:10 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash: 4701 символов, токены: in=8906 (hit=4736, miss=4170), out=1474
+2026-09-24 17:30:10 | INFO     | analyzer.orchestrator | [5/6]   1A: 4 жалоб найдено
+2026-09-24 17:30:14 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 7.5s (заголовки 0.5s + тело 7.0s)
+2026-09-24 17:30:14 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash: 5094 символов, токены: in=2015 (hit=0, miss=2015), out=1669
+2026-09-24 17:30:14 | INFO     | analyzer.photo | Structure: порядок требует правки, новый порядок: True, new_photo: True, replace_photo: False
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6]   VLM: score=7/10
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6]   VLM ✓ завершён
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6]   1A ✓ завершён
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6]   1B ✓ завершён
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6]   1C ✓ завершён
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6]   1D ✓ завершён
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6]   1E ✓ завершён
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6] Калькулятор: детерминированный пересчёт чисел (ИИ не считает)
+2026-09-24 17:30:14 | INFO     | analyzer.calculator | Калькулятор: positive=81.1%, negative=11.3%, comp_neg=28.9%, price_diff=[ДАННЫЕ НЕДОСТУПНЫ]
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6] Метрики качества: Wilson LB=0.9303, NPS=81.1, Gap=2.425, PriceIdx=None, velocity=10.0/нед
+2026-09-24 17:30:14 | INFO     | analyzer.repeat_detector | [5/6] Повторные покупки: 4 отзывов с прямым упоминанием (позитивных 4, негативных 0, сигнал: да)
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6] Метрики: негативных 6 из 53 (11.3% от всех отзывов)
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6] Калькулятор ✓ завершён: positive=81.1%, negative=11.3%, comp_neg=28.9%
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6] Stage 2: запуск 3 под-стадий параллельно
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6]   2A: старт (конкурентное сравнение)
+2026-09-24 17:30:14 | DEBUG    | analyzer.prompt_loader | Загрузка промпта: substage_2a_v1.0.yaml
+2026-09-24 17:30:14 | INFO     | analyzer.prompt_loader | Промпт загружен: substage_2a_v1.0 (system_prompt=4477 символов)
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6]   2B: старт (quick wins + стратегия)
+2026-09-24 17:30:14 | DEBUG    | analyzer.prompt_loader | Загрузка промпта: substage_2b_v1.0.yaml
+2026-09-24 17:30:14 | INFO     | rag.router | RAG substage '2a': query='Красота и здоровье, конкурент цена ?, рейтинг ?, сравнение конкурентов'
+2026-09-24 17:30:14 | INFO     | analyzer.prompt_loader | Промпт загружен: substage_2b_v1.0 (system_prompt=8003 символов)
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6]   2C: старт (SEO + разрывы)
+2026-09-24 17:30:14 | DEBUG    | analyzer.prompt_loader | Загрузка промпта: substage_2c_v1.0.yaml
+2026-09-24 17:30:14 | INFO     | rag.router | RAG substage '2b': query='Красота и здоровье, Нестойкость аромата, Неприятный аромат, Аллергическая реакция, Приятный вишнёвый'
+2026-09-24 17:30:14 | INFO     | analyzer.prompt_loader | Промпт загружен: substage_2c_v1.0 (system_prompt=8598 символов)
+2026-09-24 17:30:14 | INFO     | rag.router | RAG substage '2c': query='Красота и здоровье, заголовок: Мист для тела и волос парфюмированный, описание 1530 символов, SEO ау'
+2026-09-24 17:30:14 | INFO     | rag.retrieval | RAG: уровень 1 (всегда) — 8 карточек (core only)
+2026-09-24 17:30:14 | INFO     | rag.retrieval | RAG: query для уровня 2: 'Красота и здоровье, конкурент цена ?, рейтинг ?, сравнение конкурентов'
+2026-09-24 17:30:14 | INFO     | rag.retrieval | RAG: уровень 1 (всегда) — 8 карточек (core only)
+2026-09-24 17:30:14 | INFO     | rag.retrieval | RAG: уровень 1 (всегда) — 8 карточек (core only)
+2026-09-24 17:30:14 | INFO     | rag.retrieval | RAG: query для уровня 2: 'Красота и здоровье, заголовок: Мист для тела и волос парфюмированный, описание 1530 символов, SEO аудит ранжирование разрывы ожидание реальность'
+2026-09-24 17:30:14 | INFO     | rag.retrieval | RAG: query для уровня 2: 'Красота и здоровье, Нестойкость аромата, Неприятный аромат, Аллергическая реакция, Приятный вишнёвый аромат, Стойкость аромата, Удобный формат и упаковка, рекомендации стратегия quick wins'
+2026-09-24 17:30:14 | INFO     | rag.retrieval | RAG: уровень 2 (hybrid retrieval) — 8 карточек (domain/narrow_wb/auto_generated, top_k=8)
+2026-09-24 17:30:14 | INFO     | rag.retrieval |   → D5: Конфликт ожидания и реальности (score=0.8333)
+2026-09-24 17:30:14 | INFO     | rag.retrieval |   → W8: SEO-аудит карточки товара на Wildberries (score=0.8333)
+2026-09-24 17:30:14 | INFO     | rag.retrieval | RAG: уровень 2 (hybrid retrieval) — 8 карточек (domain/narrow_wb/auto_generated, top_k=8)
+2026-09-24 17:30:14 | INFO     | rag.retrieval | RAG: уровень 2 (hybrid retrieval) — 8 карточек (domain/narrow_wb/auto_generated, top_k=8)
+2026-09-24 17:30:14 | INFO     | rag.retrieval |   → D13: Аудит контента карточки товара (score=0.4167)
+2026-09-24 17:30:14 | INFO     | rag.retrieval |   → D14: Методология рекомендаций (score=0.6250)
+2026-09-24 17:30:14 | INFO     | rag.retrieval |   → D6: Методика анализа конкурентов (score=1.0000)
+2026-09-24 17:30:14 | INFO     | rag.retrieval | RAG: итого 16 карточек (level1=8 + level2=8)
+2026-09-24 17:30:14 | INFO     | rag.retrieval |   → D3: Сигналы сильной карточки товара (score=0.5000)
+2026-09-24 17:30:14 | INFO     | rag.retrieval |   → D10: Конкурентный анализ: лидеры, преимущества, слабост (score=0.6667)
+2026-09-24 17:30:14 | INFO     | rag.retrieval |   → D7: Поиск скрытых преимуществ товара (score=0.4167)
+2026-09-24 17:30:14 | INFO     | rag.retrieval |   → D12: Ценовые стратегии на маркетплейсе (score=0.3429)
+2026-09-24 17:30:14 | INFO     | rag.retrieval | RAG: итого 16 карточек (level1=8 + level2=8)
+2026-09-24 17:30:14 | INFO     | rag.retrieval | RAG: итого 16 карточек (level1=8 + level2=8)
+2026-09-24 17:30:14 | INFO     | rag.retrieval | RAG: контекст базы знаний — 18096 символов, ~4524 токенов
+2026-09-24 17:30:14 | INFO     | rag.router | RAG substage '2c': используется семантический retrieval
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6]   2C: RAG retrieval завершён за 0.11s (контекст=18096 симв)
+2026-09-24 17:30:14 | INFO     | rag.retrieval | RAG: контекст базы знаний — 19189 символов, ~4797 токенов
+2026-09-24 17:30:14 | INFO     | rag.router | RAG substage '2b': используется семантический retrieval
+2026-09-24 17:30:14 | INFO     | rag.retrieval | RAG: контекст базы знаний — 15865 символов, ~3966 токенов
+2026-09-24 17:30:14 | INFO     | rag.router | RAG substage '2a': используется семантический retrieval
+2026-09-24 17:30:14 | DEBUG    | analyzer.prompt_loader | Загрузка промпта: measure_queries_v1.0.yaml
+2026-09-24 17:30:14 | INFO     | analyzer.prompt_loader | Промпт загружен: measure_queries_v1.0 (system_prompt=1101 символов)
+2026-09-24 17:30:14 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash task=analysis (max_tokens=12000)…
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6]   2B: RAG retrieval завершён за 0.14s (контекст=19189 симв)
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6]   2B: запрос к LLM (system=27194, user=13564)
+2026-09-24 17:30:14 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash task=analysis (max_tokens=12000)…
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6]   2A: RAG retrieval завершён за 0.16s (контекст=15865 симв)
+2026-09-24 17:30:14 | INFO     | analyzer.orchestrator | [5/6]   2A: запрос к LLM (system=20344, user=12164)
+2026-09-24 17:30:14 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash task=analysis (max_tokens=12000)…
+2026-09-24 17:30:14 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.4s — читаю тело (генерация LLM)…
+2026-09-24 17:30:14 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.6s — читаю тело (генерация LLM)…
+2026-09-24 17:30:15 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.7s — читаю тело (генерация LLM)…
+2026-09-24 17:30:15 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 1.4s (заголовки 0.4s + тело 1.0s)
+2026-09-24 17:30:15 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash: 246 символов, токены: in=595 (hit=256, miss=339), out=88
+2026-09-24 17:30:15 | INFO     | analyzer.orchestrator | [5/6]   2C: ИИ-запросы замера: 4 прошли фильтр из 8 предложенных
+2026-09-24 17:30:15 | WARNING  | seo.search_position | Поиск WB: HTTP 403 на «мист для тела парфюмированный» стр.1 — доступ запрещён: антибот WB фильтрует не-браузерные клиенты (по опыту диагностик 09.2026 — TLS-отпечаток, не IP)
+2026-09-24 17:30:15 | DEBUG    | seo.search_position | Поиск WB: запрос «мист для тела парфюмированный» стр.1 не удался: HTTP Error 403: Forbidden
+2026-09-24 17:30:15 | WARNING  | seo.search_position | SEO-позиции: «мист для тела парфюмированный» — выдача недоступна (network), пропуск
+2026-09-24 17:30:17 | WARNING  | seo.search_position | Поиск WB: HTTP 403 на «мист для волос парфюмированный» стр.1 — доступ запрещён: антибот WB фильтрует не-браузерные клиенты (по опыту диагностик 09.2026 — TLS-отпечаток, не IP)
+2026-09-24 17:30:17 | DEBUG    | seo.search_position | Поиск WB: запрос «мист для волос парфюмированный» стр.1 не удался: HTTP Error 403: Forbidden
+2026-09-24 17:30:17 | WARNING  | seo.search_position | SEO-позиции: «мист для волос парфюмированный» — выдача недоступна (network), пропуск
+2026-09-24 17:30:17 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 3.4s (заголовки 0.6s + тело 2.8s)
+2026-09-24 17:30:17 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash: 2058 символов, токены: in=10939 (hit=3968, miss=6971), out=628
+2026-09-24 17:30:17 | INFO     | analyzer.orchestrator | [5/6]   2A: 1 сравнений
+2026-09-24 17:30:18 | WARNING  | seo.search_position | Поиск WB: HTTP 403 на «парфюмированный спрей стойкий» стр.1 — доступ запрещён: антибот WB фильтрует не-браузерные клиенты (по опыту диагностик 09.2026 — TLS-отпечаток, не IP)
+2026-09-24 17:30:18 | DEBUG    | seo.search_position | Поиск WB: запрос «парфюмированный спрей стойкий» стр.1 не удался: HTTP Error 403: Forbidden
+2026-09-24 17:30:18 | WARNING  | seo.search_position | SEO-позиции: «парфюмированный спрей стойкий» — выдача недоступна (network), пропуск
+2026-09-24 17:30:19 | WARNING  | seo.search_position | Поиск WB: HTTP 403 на «мист с вкусным запахом» стр.1 — доступ запрещён: антибот WB фильтрует не-браузерные клиенты (по опыту диагностик 09.2026 — TLS-отпечаток, не IP)
+2026-09-24 17:30:19 | DEBUG    | seo.search_position | Поиск WB: запрос «мист с вкусным запахом» стр.1 не удался: HTTP Error 403: Forbidden
+2026-09-24 17:30:19 | WARNING  | seo.search_position | SEO-позиции: «мист с вкусным запахом» — выдача недоступна (network), пропуск
+2026-09-24 17:30:19 | WARNING  | seo.search_position | SEO-замер: измерено 0 из 4; пропуски: сеть ×4 — детали выше (HTTP-коды по каждому запросу)
+2026-09-24 17:30:19 | INFO     | analyzer.orchestrator | SEO-замер: 0 из 4 запросов; причины пропусков: сеть ×4
+2026-09-24 17:30:19 | INFO     | analyzer.orchestrator | [5/6]   2C: запрос к LLM (system=26696, user=12412)
+2026-09-24 17:30:19 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash task=analysis (max_tokens=12000)…
+2026-09-24 17:30:20 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.7s — читаю тело (генерация LLM)…
+2026-09-24 17:30:27 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 13.3s (заголовки 0.7s + тело 12.6s)
+2026-09-24 17:30:27 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash: 9299 символов, токены: in=13881 (hit=5376, miss=8505), out=3105
+2026-09-24 17:30:27 | INFO     | analyzer.orchestrator | [5/6]   2B: 5 quick wins, 3 стратегий
+2026-09-24 17:30:28 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 9.4s (заголовки 0.7s + тело 8.7s)
+2026-09-24 17:30:28 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash: 7779 символов, токены: in=13218 (hit=5376, miss=7842), out=2559
+2026-09-24 17:30:28 | WARNING  | analyzer.orchestrator | [5/6]   2C: самопроверка стандарта — предложенное описание не закрывает названные пробелы (стойкости, аллергических, реакциях, негатива) — самоповтор стадии
+2026-09-24 17:30:29 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash task=analysis (max_tokens=12000)…
+2026-09-24 17:30:29 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.9s — читаю тело (генерация LLM)…
+2026-09-24 17:30:41 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 12.6s (заголовки 0.9s + тело 11.7s)
+2026-09-24 17:30:41 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash: 10255 символов, токены: in=13394 (hit=13184, miss=210), out=3246
+2026-09-24 17:30:41 | WARNING  | analyzer.orchestrator | [5/6]   2C: самоповтор не улучшил покрытие — оставлен первый ответ (покрытие пробелов дальше проверяет судья, п.8 контракта)
+2026-09-24 17:30:41 | INFO     | analyzer.orchestrator | [5/6]   2C: SEO score=6, 3 разрывов
+2026-09-24 17:30:41 | INFO     | analyzer.orchestrator | [5/6]   2A ✓ завершён
+2026-09-24 17:30:41 | INFO     | analyzer.orchestrator | [5/6]   2B ✓ завершён
+2026-09-24 17:30:41 | INFO     | analyzer.orchestrator | [5/6]   2C ✓ завершён
+2026-09-24 17:30:41 | INFO     | analyzer.orchestrator | [5/6] Stage 3: сборка отчёта
+2026-09-24 17:30:41 | INFO     | analyzer.orchestrator | [5/6]   Stage 3: старт сборки
+2026-09-24 17:30:41 | DEBUG    | analyzer.prompt_loader | Загрузка промпта: substage_3_assembly_v1.0.yaml
+2026-09-24 17:30:41 | INFO     | analyzer.prompt_loader | Промпт загружен: substage_3_assembly_v1.0 (system_prompt=5881 символов)
+2026-09-24 17:30:41 | INFO     | rag.router | RAG substage '3': query='аудиторское заключение, приоритизация, сборка отчёта'
+2026-09-24 17:30:41 | INFO     | rag.retrieval | RAG: уровень 1 (всегда) — 8 карточек (core only)
+2026-09-24 17:30:41 | INFO     | rag.retrieval | RAG: query для уровня 2: 'аудиторское заключение, приоритизация, сборка отчёта'
+2026-09-24 17:30:41 | INFO     | rag.retrieval | RAG: уровень 2 (hybrid retrieval) — 8 карточек (domain/narrow_wb/auto_generated, top_k=8)
+2026-09-24 17:30:41 | INFO     | rag.retrieval |   → D15: Формирование аудиторского заключения (score=1.0000)
+2026-09-24 17:30:41 | INFO     | rag.retrieval |   → D18: Анализ ответов продавца — метрики и интерпретация (score=0.4048)
+2026-09-24 17:30:41 | INFO     | rag.retrieval |   → D19: Связь качества ответов продавца с продажами и рейт (score=0.3750)
+2026-09-24 17:30:41 | INFO     | rag.retrieval | RAG: итого 16 карточек (level1=8 + level2=8)
+2026-09-24 17:30:41 | INFO     | rag.retrieval | RAG: контекст базы знаний — 20556 символов, ~5139 токенов
+2026-09-24 17:30:41 | INFO     | rag.router | RAG substage '3': используется семантический retrieval
+2026-09-24 17:30:41 | INFO     | analyzer.orchestrator | [5/6]   Stage 3: RAG retrieval завершён за 0.12s (контекст=20556 симв)
+2026-09-24 17:30:41 | INFO     | analyzer.orchestrator | [5/6]   Stage 3: запрос к LLM (system=26439, user=45702)
+2026-09-24 17:30:41 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash task=stage3 (max_tokens=12000)…
+2026-09-24 17:30:42 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.9s — читаю тело (генерация LLM)…
+2026-09-24 17:30:46 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 4.8s (заголовки 0.9s + тело 3.9s)
+2026-09-24 17:30:46 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash: 2346 символов, токены: in=24778 (hit=9472, miss=15306), out=846
+2026-09-24 17:30:46 | INFO     | analyzer.orchestrator | [5/6]   Stage 3: сборка завершена (executive_summary=1905 симв)
+2026-09-24 17:30:46 | INFO     | analyzer.orchestrator | [5/6] SEO-метрики: Visibility=None% (топ-10 None%), покрытие ключей=32.3% (1/5), completeness=97.5%, переспам=2.6%; верификация прогнозов: сбылись 0+0 из 0 проверенных
+2026-09-24 17:30:46 | INFO     | analyzer.orchestrator | [5/6] Health Score v2: 87/100 (Хорошее); исключены компоненты: нет
+2026-09-24 17:30:46 | INFO     | analyzer.orchestrator | [5/6] RICE-шлюз: кандидатов 16, топ-3: 1. Быстрая победа (2.4); 2. Быстрая победа (2.4); 3. SEO-заголовок (1.25)
+2026-09-24 17:30:46 | INFO     | analyzer.orchestrator | [5/6] ИИ-анализ завершён: жалобы=4, сильные стороны=5, quick wins=5, стратегии=3
+2026-09-24 17:30:46 | INFO     | rag.sku_memory | SKU-память: снапшот сохранён для SKU=460445507 (session=f6b94e89)
+2026-09-24 17:30:46 | INFO     | rag.observations | Observations batch: сохранено 9 наблюдений одним upsert (category=cat_beauty)
+2026-09-24 17:30:46 | INFO     | analyzer.orchestrator | [5/6] Observations: сохранено 9 из 9 (batch)
+2026-09-24 17:30:46 | INFO     | pipeline | ИИ-анализ завершён: жалобы=4, сильные стороны=5, quick wins=5, стратегии=3
+2026-09-24 17:30:46 | INFO     | pipeline | Post-валидатор арифметики: применены правки
+2026-09-24 17:30:46 | INFO     | core.assembler | Валидация пройдена: 98 отзывов, 1 конкурентов
+2026-09-24 17:30:46 | INFO     | core.assembler | JSON: включён результат ИИ-анализа
+2026-09-24 17:30:46 | INFO     | core.assembler | JSON сохранён: /Users/vadimnoskov/Desktop/работа/wb-audit-bot-data/output/2026-09-24/1_f6b94e89_1730/1_f6b94e89_1730.json
+2026-09-24 17:30:46 | INFO     | core.assembler | Статистика: клиент reviews=53, конкуренты reviews=45, всего 98 отзывов, файл 2373.9 КБ
+2026-09-24 17:30:46 | INFO     | pipeline | JSON обновлён — включён результат ИИ-анализа
+2026-09-24 17:30:46 | DEBUG    | analyzer.prompt_loader | Загрузка промпта: stage3_v1.0.yaml
+2026-09-24 17:30:46 | INFO     | analyzer.prompt_loader | Промпт загружен: stage3_v1.0 (system_prompt=4684 символов)
+2026-09-24 17:30:46 | INFO     | pipeline | Запуск Stage 4: судья-исполнитель (без регенерации)...
+2026-09-24 17:30:46 | INFO     | pipeline | Stage 4: отчёт не голый (2/13 блоков) — судья-исполнитель
+2026-09-24 17:30:46 | INFO     | pipeline | Stage 4: проход 1/2 — судья-исполнитель...
+2026-09-24 17:30:46 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-pro task=stage4 (max_tokens=12000)…
+2026-09-24 17:30:47 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.7s — читаю тело (генерация LLM)…
+2026-09-24 17:31:14 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 27.6s (заголовки 0.7s + тело 26.9s)
+2026-09-24 17:31:14 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-pro: 7745 символов, токены: in=4969 (hit=0, miss=4969), out=2525
+2026-09-24 17:31:14 | INFO     | analyzer.stage3 | Stage 4: LLM-оценка 78/100 — Отчёт в целом корректен, но есть несколько проблем: противоречие в executive summary (неверно указано, что у конкурента 18 жалоб на несоответствие аромата и 7 на химический запах, хотя в данных конкурента только 3 слабости), несоответствие в SEO recommended_title (длина 55 символов, но в отчёте указано 60, и заголовок не содержит ключевое слово «парфюмированный»), а также в quick wins первый пункт имеет обрезанный description. Исправлены executive summary, seo_analysis и quick wins.
+2026-09-24 17:31:14 | INFO     | analyzer.stage3 | Stage 4: финальный score = min(LLM=78, det=95) = 78
+2026-09-24 17:31:14 | INFO     | pipeline | Stage 4: проход 1 — score 78/100. Проблем: 3, исправлено: 3. Отчёт в целом корректен, но есть несколько проблем: противоречие в executive summary (неверно указано, что у конкурента 18 жалоб на несоответствие аро
+2026-09-24 17:31:14 | INFO     | pipeline |   ⚠️ В executive summary указано: «у конкурента 18 жалоб на несоответствие аромата ожиданиям и 7 на химический запах», но в данных конкурента (Stage 1D) только 3 слабости, и нет информации о 18 и 7 жалобах. Это галлюцинация чисел.
+2026-09-24 17:31:14 | INFO     | pipeline |   ⚠️ В SEO recommended_title длина 55 символов, но в отчёте указано 60 символов. Также заголовок не содержит слово «парфюмированный», которое есть в исходном названии товара.
+2026-09-24 17:31:14 | INFO     | pipeline |   ⚠️ В quick wins первый пункт имеет обрезанный description: «Сейчас 3 из 6 негативных отзывов (50% нег» — текст обрывается.
+2026-09-24 17:31:14 | INFO     | pipeline |   ✓ блок 'executive_summary' исправлен судьёй
+2026-09-24 17:31:14 | INFO     | pipeline |   ✓ блок 'seo_analysis' исправлен судьёй
+2026-09-24 17:31:14 | INFO     | pipeline |   ✓ блок 'quick_wins' исправлен судьёй
+2026-09-24 17:31:14 | INFO     | pipeline | Stage 4: проход 1 — 3 исправлений из 3
+2026-09-24 17:31:14 | INFO     | core.assembler | Валидация пройдена: 98 отзывов, 1 конкурентов
+2026-09-24 17:31:14 | INFO     | core.assembler | JSON: включён результат ИИ-анализа
+2026-09-24 17:31:14 | INFO     | core.assembler | JSON сохранён: /Users/vadimnoskov/Desktop/работа/wb-audit-bot-data/output/2026-09-24/1_f6b94e89_1730/1_f6b94e89_1730.json
+2026-09-24 17:31:14 | INFO     | core.assembler | Статистика: клиент reviews=53, конкуренты reviews=45, всего 98 отзывов, файл 2370.4 КБ
+2026-09-24 17:31:14 | INFO     | pipeline | Stage 4: проход 2/2 — судья-исполнитель...
+2026-09-24 17:31:14 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-pro task=stage4 (max_tokens=12000)…
+2026-09-24 17:31:15 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.6s — читаю тело (генерация LLM)…
+2026-09-24 17:31:16 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 2.1s (заголовки 0.6s + тело 1.4s)
+2026-09-24 17:31:16 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-pro: 136 символов, токены: in=5041 (hit=0, miss=5041), out=46
+2026-09-24 17:31:16 | INFO     | analyzer.stage3 | Stage 4: LLM-оценка 95/100 — Отчёт корректен, проблем не найдено.
+2026-09-24 17:31:16 | INFO     | analyzer.stage3 | Stage 4: финальный score = min(LLM=95, det=95) = 95
+2026-09-24 17:31:16 | INFO     | pipeline | Stage 4: проход 2 — score 95/100. Проблем: 0, исправлено: 0. Отчёт корректен, проблем не найдено.
+2026-09-24 17:31:16 | INFO     | pipeline | Stage 4: проход 2 — 0 исправлений из 0
+2026-09-24 17:31:16 | INFO     | pipeline | Stage 4: отчёт прошёл (score 95/100). Выход.
+2026-09-24 17:31:16 | INFO     | pipeline | Stage 4: ФИНАЛ — score 95/100. Исправлено: 3
+2026-09-24 17:31:16 | INFO     | pipeline |   ✓ Проход 1: executive_summary
+2026-09-24 17:31:16 | INFO     | pipeline |   ✓ Проход 1: seo_analysis
+2026-09-24 17:31:16 | INFO     | pipeline |   ✓ Проход 1: quick_wins
+2026-09-24 17:31:16 | INFO     | pipeline | Stage 4: отчёт отдаётся пользователю с score=95/100.
+2026-09-24 17:31:16 | INFO     | analyzer.anti_recommendations | [Пост-обработка] Анти-рекомендации №11: 3 шт — [strength] 30 упоминаний в позитивных отзывах; [key] общие слова с жалобой «Нестойкость аромата»: 3 упомин.; [key] общие слова с жалобой «Нестойкость аромата»: 3 упомин.
+2026-09-24 17:31:16 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash task=analysis (max_tokens=2600)…
+2026-09-24 17:31:17 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.5s — читаю тело (генерация LLM)…
+2026-09-24 17:31:25 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 8.9s (заголовки 0.5s + тело 8.3s)
+2026-09-24 17:31:25 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash: 6349 символов, токены: in=2306 (hit=0, miss=2306), out=1674
+2026-09-24 17:31:25 | INFO     | pipeline | Фото-промт: сформирован (deepseek-v4-flash, 1552 симв.)
+2026-09-24 17:31:25 | INFO     | core.assembler | Валидация пройдена: 98 отзывов, 1 конкурентов
+2026-09-24 17:31:25 | INFO     | core.assembler | JSON: включён результат ИИ-анализа
+2026-09-24 17:31:25 | INFO     | core.assembler | JSON сохранён: /Users/vadimnoskov/Desktop/работа/wb-audit-bot-data/output/2026-09-24/1_f6b94e89_1730/1_f6b94e89_1730.json
+2026-09-24 17:31:25 | INFO     | core.assembler | Статистика: клиент reviews=53, конкуренты reviews=45, всего 98 отзывов, файл 2385.9 КБ
+2026-09-24 17:31:25 | DEBUG    | analyzer.prompt_loader | Загрузка промпта: photo_analysis_v1.0.yaml
+2026-09-24 17:31:25 | INFO     | analyzer.prompt_loader | Промпт загружен: photo_analysis_v1.0 (system_prompt=2274 символов)
+2026-09-24 17:31:25 | INFO     | core.deepseek_client | → попытка 1/3: запрос к DeepSeek model=deepseek-v4-flash task=analysis (max_tokens=60)…
+2026-09-24 17:31:26 | INFO     | core.deepseek_client | ← попытка 1/3: заголовки получены за 0.5s — читаю тело (генерация LLM)…
+2026-09-24 17:31:26 | INFO     | core.deepseek_client | ← попытка 1/3: ответ полностью получен за 1.2s (заголовки 0.5s + тело 0.7s)
+2026-09-24 17:31:26 | DEBUG    | core.deepseek_client | DeepSeek deepseek-v4-flash: 29 символов, токены: in=326 (hit=128, miss=198), out=8
+2026-09-24 17:31:26 | INFO     | rag.complaint_normalizer | Лестница жалоб: flash-LLM решил 1 новых формулировок (вечный кэш)
+2026-09-24 17:31:26 | INFO     | rag.niche_memory | Память ниши: жалобы нормализованы (exact=1, vector=2, cache=1, карантин=0)
+2026-09-24 17:31:26 | INFO     | rag.niche_memory | Память ниши: паспорт депонирован (category=cat_beauty, sku=460445507, schema=1)
+2026-09-24 17:31:26 | INFO     | pipeline | Stage 4: отчёт отдаётся пользователю с score=95/100.
+2026-09-24 17:31:26 | INFO     | pipeline | [5/6] ✓ ai_analysis — завершён (85.6s)
+2026-09-24 17:31:26 | DEBUG    | core.checkpoint | Чекпоинт сохранён: шаг generate_reports, завершено 5
+2026-09-24 17:31:26 | INFO     | pipeline | [6/6] → generate_reports
+2026-09-24 17:31:27 | DEBUG    | core.progress | Прогресс: [6/6] running — generate_reports
+2026-09-24 17:31:27 | INFO     | pipeline | Генерация полного DOCX-отчёта...
+2026-09-24 17:31:27 | INFO     | reporter.docx | DOCX: сборка секции 'Обложка'…
+2026-09-24 17:31:27 | INFO     | reporter.docx | DOCX: сборка секции 'Метрики'…
+2026-09-24 17:31:27 | INFO     | reporter.docx | DOCX: сборка секции 'Executive Summary'…
+2026-09-24 17:31:27 | INFO     | reporter.docx | DOCX: сборка секции 'Риск модерации'…
+2026-09-24 17:31:27 | INFO     | reporter.docx | DOCX: сборка секции 'Репутация и динамика'…
+2026-09-24 17:31:27 | INFO     | reporter.diff_report | Дифф-репорт: нет предыдущего прогона для SKU=460445507
+2026-09-24 17:31:27 | INFO     | reporter.docx | DOCX: сборка секции 'Проблемы'…
+2026-09-24 17:31:27 | INFO     | reporter.docx | DOCX: сборка секции 'Разрывы ожидание/реальность'…
+2026-09-24 17:31:27 | INFO     | reporter.docx | DOCX: сборка секции 'Сильные стороны'…
+2026-09-24 17:31:27 | INFO     | reporter.docx | DOCX: сборка секции 'Конкуренты'…
+2026-09-24 17:31:27 | INFO     | reporter.docx | DOCX: сборка секции 'Вы на фоне категории'…
+2026-09-24 17:31:27 | INFO     | rag.niche_vitrine | Витрина: тишина (cat_beauty): различных артикулов 2 < 5 (паспортов 8)
+2026-09-24 17:31:27 | INFO     | reporter.docx | DOCX: сборка секции 'Фото'…
+2026-09-24 17:31:27 | INFO     | reporter.docx | DOCX: сборка секции 'SEO'…
+2026-09-24 17:31:27 | INFO     | reporter.docx | DOCX: сборка секции 'Данные API продавца'…
+2026-09-24 17:31:27 | INFO     | reporter.docx | DOCX: сборка секции 'Стратегия увеличения отзывов'…
+2026-09-24 17:31:27 | INFO     | reporter.docx | DOCX: сборка секции 'Итог'…
+2026-09-24 17:31:27 | INFO     | reporter.docx | DOCX: сборка секции 'Готовые материалы'…
+2026-09-24 17:31:27 | INFO     | reporter.docx | Оглавление: 47 пунктов → шрифт 9pt (динамическая типографика — одна страница)
+2026-09-24 17:31:27 | INFO     | reporter.docx | DOCX навигация: якорей 52, пунктов оглавления 47, внутренних ссылок 52 (отложенных разрешено 2, пропущено 0), таблиц 127 (неразрывных строк 219, шапки повторяются), битых 0
+2026-09-24 17:31:27 | INFO     | reporter.docx | DOCX: сохранение финального отчёта в 1_f6b94e89_1731.docx…
+2026-09-24 17:31:27 | WARNING  | reporter.paginate | Пагинация: ни Word, ни LibreOffice недоступны — номера страниц убраны из оглавления (пункты остались кликабельными)
+2026-09-24 17:31:27 | INFO     | reporter.docx | Финальный DOCX: /Users/vadimnoskov/Desktop/работа/wb-audit-bot-data/output/2026-09-24/1_f6b94e89_1730/1_f6b94e89_1731.docx
+2026-09-24 17:31:27 | INFO     | reporter.docx | Промежуточный DOCX: /Users/vadimnoskov/Desktop/работа/wb-audit-bot-data/output/2026-09-24/1_f6b94e89_1730/1_f6b94e89_1731_DRAFT.docx
+2026-09-24 17:31:27 | INFO     | pipeline | DOCX сохранён: /Users/vadimnoskov/Desktop/работа/wb-audit-bot-data/output/2026-09-24/1_f6b94e89_1730/1_f6b94e89_1731.docx
+2026-09-24 17:31:27 | INFO     | pipeline | Метрик-отчёт: старт генерации…
+2026-09-24 17:31:27 | INFO     | pipeline | Метрик-отчёт: генерация (session=f6b94e89, sku=460445507)…
+2026-09-24 17:31:28 | INFO     | reporter.metrics_report | Метрик-отчёт сохранён: /Users/vadimnoskov/Desktop/работа/wb-audit-bot-data/output/metrics_f6b94e89_20260924_1731.docx
+2026-09-24 17:31:28 | INFO     | pipeline | Метрик-отчёт сохранён: /Users/vadimnoskov/Desktop/работа/wb-audit-bot-data/output/metrics_f6b94e89_20260924_1731.docx
+2026-09-24 17:31:28 | INFO     | pipeline | [6/6] ✓ generate_reports — завершён (1.5s)
+2026-09-24 17:31:28 | DEBUG    | core.checkpoint | Чекпоинт сохранён: шаг , завершено 6
+2026-09-24 17:31:28 | INFO     | browser.session_manager | Сессия сохранена: 79015408273
+2026-09-24 17:31:28 | INFO     | browser.session_manager | Контекст закрыт: 79015408273
+2026-09-24 17:31:29 | INFO     | browser.manager | Браузер закрыт
+2026-09-24 17:31:29 | INFO     | browser.manager | Playwright остановлен
+2026-09-24 17:31:29 | INFO     | core.checkpoint | Чекпоинт удалён — сессия завершена успешно
+2026-09-24 17:31:29 | DEBUG    | core.progress | Прогресс: [6/6] completed — done
